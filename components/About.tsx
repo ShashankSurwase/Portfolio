@@ -28,7 +28,8 @@ const PILLARS = [
 ];
 
 const FACTS = [
-  { k: "experience", v: "3–4 years" },
+  { k: "experience", v: "4+ years (Jul 2021 → now)" },
+  { k: "education",  v: "PG-DBDA, C-DAC Pune · B.E., MIT AoE Pune" },
   { k: "industries", v: "3 (e-comm · edtech · solar)" },
   { k: "ownership", v: "end-to-end" },
   { k: "stack",      v: "Python · SQL · Airflow · ClickHouse · Redshift · Grafana · Power BI" },
@@ -51,8 +52,8 @@ export default function About() {
 
             <div className="mt-5 space-y-4 theme-text-secondary leading-relaxed text-[15px]">
               <p>
-                I&apos;m Shashank — a Data Engineer & Analytics Engineer at a data
-                analytics consultancy. I own the full data stack: ingestion
+                I&apos;m Shashank — a Data Engineer & Analytics Engineer at Delphi
+                Analytics, a data analytics consultancy. I own the full data stack: ingestion
                 pipelines, warehouses, executive dashboards, automated
                 reporting.
               </p>

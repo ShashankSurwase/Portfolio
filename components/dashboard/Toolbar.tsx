@@ -1,8 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Search, Clock, Download } from "lucide-react";
 import ThemeToggle from "../ThemeToggle";
+import { PROFILE } from "@/lib/profile";
 
 const RANGES = ["Last 24h", "Last 7d", "Last 30d", "Last 90d", "All time"];
 
@@ -106,17 +108,17 @@ export default function Toolbar() {
         </span>
 
         {/* View switcher */}
-        <a href="/v2" className="chip hidden sm:inline-flex" title="Switch to editorial view">
+        <Link href="/v2" className="chip hidden sm:inline-flex" title="Switch to editorial view">
           <span className="theme-text-muted">view:</span>
           <span className="theme-text-accent">dashboard</span>
           <span className="theme-text-faint">↻</span>
-        </a>
+        </Link>
 
         {/* Theme toggle */}
         <ThemeToggle compact />
 
         {/* Resume export */}
-        <a href="/resume.pdf" className="btn-ghost">
+        <a href={PROFILE.resumeHref} target="_blank" rel="noopener noreferrer" className="btn-ghost">
           <Download size={12} /> Resume
         </a>
       </div>

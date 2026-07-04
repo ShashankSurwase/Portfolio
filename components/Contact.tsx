@@ -1,19 +1,23 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Link2, GitBranch, Send, CheckCircle, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, Link2, GitBranch, Send, CheckCircle, MapPin, Clock } from "lucide-react";
 import Panel from "./dashboard/Panel";
 import StatusPill from "./dashboard/StatusPill";
+import { PROFILE } from "@/lib/profile";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
-  const [loading, setLoading] = useState(false);
 
+  // No backend on static hosting — compose the message in the visitor's own
+  // email client instead of pretending to submit.
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-    setTimeout(() => { setLoading(false); setSent(true); }, 900);
+    const subject = encodeURIComponent(`Portfolio contact — ${form.name}`);
+    const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`);
+    window.location.href = `${PROFILE.emailHref}?subject=${subject}&body=${body}`;
+    setSent(true);
   };
 
   return (
@@ -42,8 +46,11 @@ export default function Contact() {
               {sent ? (
                 <div className="flex flex-col items-center justify-center py-10 text-center">
                   <CheckCircle size={40} className="theme-text-success mb-3" />
-                  <h3 className="text-base font-semibold theme-text-primary mb-1">Message queued</h3>
-                  <p className="text-sm theme-text-muted">I&apos;ll respond within 24 hours.</p>
+                  <h3 className="text-base font-semibold theme-text-primary mb-1">Email draft opened</h3>
+                  <p className="text-sm theme-text-muted">
+                    Your email app should now have the message ready — just hit send.
+                    Or write directly to <span className="theme-text-accent">{PROFILE.email}</span>.
+                  </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -66,14 +73,8 @@ export default function Contact() {
                     onChange={(v) => setForm({ ...form, message: v })}
                     placeholder="Tell me about the role, project, or opportunity…"
                   />
-                  <button type="submit" disabled={loading} className="btn-accent disabled:opacity-60">
-                    {loading ? (
-                      <>compiling…</>
-                    ) : (
-                      <>
-                        <Send size={12} /> submit()
-                      </>
-                    )}
+                  <button type="submit" className="btn-accent">
+                    <Send size={12} /> send_email()
                   </button>
                 </form>
               )}
@@ -83,9 +84,10 @@ export default function Contact() {
           {/* Links + meta */}
           <div className="space-y-3">
             {[
-              { icon: Mail,      label: "Email",    value: "available on request", color: "var(--accent)" },
-              { icon: Link2,     label: "LinkedIn", value: "linkedin.com/in/shashank-surwase", color: "var(--info)" },
-              { icon: GitBranch, label: "GitHub",   value: "github.com/shashank-surwase", color: "var(--fg-secondary)" },
+              { icon: Mail,      label: "Email",    value: PROFILE.email,    href: PROFILE.emailHref,    color: "var(--accent)" },
+              { icon: Phone,     label: "Phone",    value: PROFILE.phone,    href: PROFILE.phoneHref,    color: "var(--success)" },
+              { icon: Link2,     label: "LinkedIn", value: PROFILE.linkedin, href: PROFILE.linkedinHref, color: "var(--info)" },
+              { icon: GitBranch, label: "GitHub",   value: PROFILE.github,   href: PROFILE.githubHref,   color: "var(--fg-secondary)" },
             ].map((link, i) => (
               <motion.a
                 key={link.label}
@@ -93,7 +95,10 @@ export default function Contact() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.06 }}
-                href="#"
+                href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                aria-label={`${link.label}: ${link.value}`}
                 className="panel panel-hover flex items-center gap-3 px-4 py-3 group"
               >
                 <div
@@ -119,7 +124,7 @@ export default function Contact() {
               <div className="p-4 space-y-2.5 text-[12.5px]">
                 <div className="flex items-center gap-2 theme-text-secondary">
                   <MapPin size={12} className="theme-text-muted" />
-                  India · remote-first
+                  {PROFILE.location}
                 </div>
                 <div className="flex items-center gap-2 theme-text-secondary">
                   <Clock size={12} className="theme-text-muted" />

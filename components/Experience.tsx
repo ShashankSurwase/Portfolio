@@ -61,12 +61,12 @@ export default function Experience() {
     <section id="experience" className="px-4 sm:px-6 py-6">
       <Panel
         name="panel.experience"
-        meta="employer: data analytics consultancy · 3 active engagements"
+        meta="employer: Delphi Analytics · 3 active engagements"
         actions={
           <span className="chip">
             <Building2 size={11} className="theme-text-accent" />
             <Calendar size={11} className="theme-text-muted" />
-            2021–present
+            Jul 2021–present
           </span>
         }
       >

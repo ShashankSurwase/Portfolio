@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Mail, GitBranch, Link2 } from "lucide-react";
+import { PROFILE } from "@/lib/profile";
 
 const STACK_GROUPS = [
   {
@@ -132,13 +133,13 @@ export default function StackAndContact() {
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <a href="#" className="btn-editorial-accent">
+            <a href={PROFILE.emailHref} className="btn-editorial-accent">
               <Mail size={14} /> Write to me
             </a>
-            <a href="#" className="btn-editorial">
+            <a href={PROFILE.githubHref} target="_blank" rel="noopener noreferrer" className="btn-editorial">
               <GitBranch size={14} /> GitHub
             </a>
-            <a href="#" className="btn-editorial">
+            <a href={PROFILE.linkedinHref} target="_blank" rel="noopener noreferrer" className="btn-editorial">
               <Link2 size={14} /> LinkedIn
             </a>
           </div>

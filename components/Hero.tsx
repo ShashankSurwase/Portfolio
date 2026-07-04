@@ -5,6 +5,7 @@ import Panel from "./dashboard/Panel";
 import MetricTile from "./dashboard/MetricTile";
 import StatusPill from "./dashboard/StatusPill";
 import Sparkline from "./dashboard/Sparkline";
+import TerminalWidget from "./TerminalWidget";
 
 // Mock-but-grounded time series for sparklines (the numbers reflect real
 // engagement metrics from the README data)
@@ -47,6 +48,7 @@ export default function Hero() {
         name="panel.overview"
         meta="last refreshed: just now"
         live
+        eager
         actions={
           <span className="chip">
             <span className="theme-text-accent">env:</span>
@@ -77,7 +79,7 @@ export default function Hero() {
               <span className="theme-text-accent">e-commerce</span>,{" "}
               <span className="theme-text-accent">EdTech</span>, and{" "}
               <span className="theme-text-accent">renewable&nbsp;energy</span>{" "}
-              domains. 3–4 years at a data analytics consultancy.
+              domains. 4+ years at Delphi Analytics, a data analytics consultancy.
             </p>
 
             <div className="mt-7 flex flex-wrap items-center gap-3">
@@ -93,7 +95,7 @@ export default function Hero() {
 
             <div className="mt-6 flex flex-wrap items-center gap-2">
               <span className="chip"><span className="theme-text-muted">role:</span> open to new opportunities</span>
-              <span className="chip"><span className="theme-text-muted">location:</span> India · remote-first</span>
+              <span className="chip"><span className="theme-text-muted">location:</span> Pune, India · remote-first</span>
               <span className="chip"><span className="theme-text-muted">stack:</span> Python · SQL · Airflow · ClickHouse</span>
             </div>
           </div>
@@ -145,6 +147,7 @@ export default function Hero() {
           name="panel.headline_metric"
           meta="acquired via uae-asin reconciliation fix"
           actions={<StatusPill status="OK" />}
+          eager
         >
           <div className="flex items-end justify-between gap-6">
             <div>
@@ -174,6 +177,7 @@ export default function Hero() {
           name="panel.reports_shipped"
           meta="K-beauty ClickHouse warehouse"
           actions={<StatusPill status="PROD" />}
+          eager
         >
           <div className="grid grid-cols-3 gap-4 items-end">
             <div className="col-span-2">
@@ -198,6 +202,16 @@ export default function Hero() {
           </div>
         </Panel>
       </div>
+
+      {/* PIPELINE SIMULATION — animated terminal walkthrough of real pipelines */}
+      <Panel
+        name="panel.pipeline_replay"
+        meta="replay of 3 real production pipelines · simulated output"
+        actions={<span className="chip mono">tail -f pipeline.log</span>}
+        eager
+      >
+        <TerminalWidget />
+      </Panel>
 
       {/* ENGAGEMENTS — mini table of active work */}
       <Panel

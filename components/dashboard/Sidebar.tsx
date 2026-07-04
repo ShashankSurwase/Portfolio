@@ -12,6 +12,7 @@ import {
   Link2,
 } from "lucide-react";
 import ThemeToggle from "../ThemeToggle";
+import { PROFILE } from "@/lib/profile";
 
 const NAV = [
   { icon: LayoutDashboard, label: "Overview",  href: "#hero",       slug: "OVR" },
@@ -110,14 +111,18 @@ export default function Sidebar() {
         <div className="flex flex-col items-center gap-2">
           <ThemeToggle compact />
           <a
-            href="#"
+            href={PROFILE.githubHref}
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="GitHub"
             className="w-9 h-9 rounded flex items-center justify-center theme-text-muted hover:theme-text-accent transition-colors"
           >
             <GitBranch size={14} />
           </a>
           <a
-            href="#"
+            href={PROFILE.linkedinHref}
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="LinkedIn"
             className="w-9 h-9 rounded flex items-center justify-center theme-text-muted hover:theme-text-accent transition-colors"
           >

@@ -13,6 +13,7 @@ interface Props {
   children: ReactNode;
   className?: string;
   bodyClassName?: string;
+  eager?: boolean;       // above-the-fold: render visible immediately (no JS-gated reveal)
 }
 
 export default function Panel({
@@ -24,11 +25,12 @@ export default function Panel({
   children,
   className = "",
   bodyClassName = "",
+  eager = false,
 }: Props) {
   return (
     <motion.section
       id={id}
-      initial={{ opacity: 0, y: 16 }}
+      initial={eager ? false : { opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.35 }}
