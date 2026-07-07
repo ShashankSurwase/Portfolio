@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" font-family="Poppins, Segoe UI, Arial, sans-serif">
+<defs>
+  <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#f59e0b"/><stop offset="1" stop-color="#ea580c"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="0.82" cy="0.12" r="0.7">
+    <stop offset="0" stop-color="#fbbf24" stop-opacity="0.55"/><stop offset="1" stop-color="#fbbf24" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="640" height="360" fill="url(#g)"/>
+<rect width="640" height="360" fill="url(#glow)"/>
+<g stroke="#fff" stroke-opacity="0.06" stroke-width="1">
+  <line x1="0" y1="0" x2="0" y2="360"/><line x1="55" y1="0" x2="55" y2="360"/><line x1="110" y1="0" x2="110" y2="360"/><line x1="165" y1="0" x2="165" y2="360"/><line x1="220" y1="0" x2="220" y2="360"/><line x1="275" y1="0" x2="275" y2="360"/><line x1="330" y1="0" x2="330" y2="360"/><line x1="385" y1="0" x2="385" y2="360"/><line x1="440" y1="0" x2="440" y2="360"/><line x1="495" y1="0" x2="495" y2="360"/><line x1="550" y1="0" x2="550" y2="360"/><line x1="605" y1="0" x2="605" y2="360"/>
+  <line x1="0" y1="0" x2="640" y2="0"/><line x1="0" y1="55" x2="640" y2="55"/><line x1="0" y1="110" x2="640" y2="110"/><line x1="0" y1="165" x2="640" y2="165"/><line x1="0" y1="220" x2="640" y2="220"/><line x1="0" y1="275" x2="640" y2="275"/><line x1="0" y1="330" x2="640" y2="330"/>
+</g>
+<polygon points="320,141.8 361.0856415039506,171.65046584300228 345.39232289903487,219.94953415699774 294.60767710096513,219.94953415699774 278.9143584960494,171.65046584300228" fill="none" stroke="#fff" stroke-opacity="0.3" stroke-width="1.5"/><polygon points="320,109.4 391.8998726319136,161.638315225254 364.436565073311,246.16168477474602 275.56343492668907,246.16168477474602 248.1001273680864,161.638315225254" fill="none" stroke="#fff" stroke-opacity="0.3" stroke-width="1.5"/><polygon points="320,77 422.7141037598766,151.62616460750567 383.4808072475871,272.37383539249436 256.5191927524129,272.37383539249436 217.2858962401234,151.6261646075057" fill="none" stroke="#fff" stroke-opacity="0.3" stroke-width="1.5"/><polygon points="320,87.8 381.62846225592597,164.97569876450342 370.7846457980697,254.89906831399549 288.25959637620645,228.68691769624718 248.1001273680864,161.638315225254" fill="#fff" fill-opacity="0.22" stroke="#fff" stroke-width="3"/><circle cx="320.0" cy="87.8" r="5" fill="#fff"/><circle cx="381.6" cy="165.0" r="5" fill="#fff"/><circle cx="370.8" cy="254.9" r="5" fill="#fff"/><circle cx="288.3" cy="228.7" r="5" fill="#fff"/><circle cx="248.1" cy="161.6" r="5" fill="#fff"/>
+<text x="40" y="52" fill="#fff" fill-opacity="0.95" font-size="15" font-weight="700" letter-spacing="3">RENEWABLE ENERGY</text>
+<text x="600" y="70" fill="#fff" fill-opacity="0.28" font-size="64" font-weight="800" text-anchor="end">33</text>
+<text x="40" y="306" fill="#fff" font-size="34" font-weight="800">13 findings</text>
+<text x="42" y="330" fill="#fff" fill-opacity="0.85" font-size="15" font-weight="500">VAPT-graded &amp; fixed</text>
+</svg>
