@@ -38,6 +38,14 @@ export const metadata: Metadata = {
     description:
       "Building scalable data systems, automation platforms, and intelligent analytics ecosystems for modern businesses.",
     type: "website",
+    url: "https://shashanksurwase.github.io/Portfolio/",
+    images: [{ url: "https://shashanksurwase.github.io/Portfolio/og.png", width: 1200, height: 630, alt: "Shashank Surwase — Data Engineer & Analytics Engineer" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Shashank Surwase | Data Engineer & Analytics Engineer",
+    description: "Scalable data systems, automation, and analytics across e-commerce, edtech, and renewable energy.",
+    images: ["https://shashanksurwase.github.io/Portfolio/og.png"],
   },
 };
 
