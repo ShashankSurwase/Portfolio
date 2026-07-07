@@ -21,8 +21,9 @@ export default function FolioAbout() {
           <div className="space-y-5 text-[17px] leading-[1.8]">
             <p>
               I&apos;m a <strong className="fo-ink">Data Engineer &amp; Analytics Engineer</strong> who
-              has spent the last five years building data systems for{" "}
-              <strong className="fo-ink">fast-growing startups</strong> across e-commerce,
+              has spent the last five years — inside a{" "}
+              <strong className="fo-ink">data-analytics consultancy</strong> — building data systems
+              for <strong className="fo-ink">six client companies</strong> across e-commerce,
               edtech, and renewable energy. In each one the story was the same: the
               business was scaling fast but couldn&apos;t trust its numbers — so I built
               the whole stack that fixed that.
@@ -40,7 +41,7 @@ export default function FolioAbout() {
               Along the way I&apos;ve <strong className="fo-ink">recovered $1.05M in lost
               revenue</strong>, cut new-source onboarding from days to hours, and taken
               <strong className="fo-ink"> 120+ hours of manual work off the table every month</strong> —
-              the kind of impact that comes from owning problems end to end in a startup.
+              the kind of impact that comes from owning every problem end to end.
             </p>
           </div>
 

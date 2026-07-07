@@ -129,7 +129,7 @@ export default function FolioJourney() {
                       <Briefcase size={17} />
                     </span>
                     <span className="min-w-0 flex-1">
-                      <span className="block text-[16px] sm:text-[17.5px] font-bold fo-ink truncate">{r.title}</span>
+                      <span className="block text-[16px] sm:text-[17.5px] font-bold fo-ink leading-tight">{r.title}</span>
                       <span
                         className="block text-[13px] font-semibold"
                         style={{ color: "var(--fo-accent)", fontFamily: "var(--font-poppins), Poppins, sans-serif" }}

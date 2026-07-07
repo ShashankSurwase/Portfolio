@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local content working notes (reference only — never deployed or committed)
+/_content-backlog/

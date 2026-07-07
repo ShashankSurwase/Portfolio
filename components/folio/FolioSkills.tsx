@@ -1,5 +1,5 @@
 "use client";
-import { Code2, Workflow, Database, Cloud, BarChart3 } from "lucide-react";
+import { Code2, Workflow, Database, Cloud, BarChart3, Sparkles } from "lucide-react";
 
 type Level = "proficient" | "intermediate" | "exploring" | "familiar";
 // `logo` = filename in /public/logos (real brand SVG); `emoji` = fallback when no logo exists.
@@ -8,6 +8,17 @@ type Skill = { name: string; level: Level; logo?: string; emoji?: string };
 const LOGO_BASE = "/Portfolio/logos";
 
 const GROUPS: { icon: typeof Code2; title: string; items: Skill[] }[] = [
+  {
+    icon: Sparkles,
+    title: "Currently Learning",
+    items: [
+      { name: "Networking Fundamentals", level: "exploring", emoji: "🌐" },
+      { name: "Server Hosting & Deployment", level: "exploring", emoji: "🖥️" },
+      { name: "Proxy & Tunneling", level: "exploring", emoji: "🔀" },
+      { name: "AI Prompt Engineering", level: "exploring", emoji: "🧠" },
+      { name: "AI-Assisted Web Dev", level: "exploring", emoji: "🤖" },
+    ],
+  },
   {
     icon: Code2,
     title: "Languages & Libraries",
@@ -18,7 +29,6 @@ const GROUPS: { icon: typeof Code2; title: string; items: Skill[] }[] = [
       { name: "SQLAlchemy", level: "proficient", logo: "sqlalchemy" },
       { name: "R", level: "intermediate", logo: "r" },
       { name: "Bash / Shell", level: "intermediate", logo: "bash" },
-      { name: "Jinja2", level: "familiar", emoji: "📝" },
     ],
   },
   {
@@ -28,10 +38,9 @@ const GROUPS: { icon: typeof Code2; title: string; items: Skill[] }[] = [
       { name: "Apache Airflow", level: "proficient", logo: "airflow" },
       { name: "Custom Python ETL", level: "proficient", emoji: "🔧" },
       { name: "AWS Lambda", level: "proficient", emoji: "⚡" },
-      { name: "pangres upserts", level: "proficient", emoji: "⬆️" },
       { name: "AWS EventBridge", level: "intermediate", emoji: "⏰" },
-      { name: "Apache Kafka", level: "intermediate", logo: "kafka" },
       { name: "Selenium", level: "intermediate", logo: "selenium" },
+      { name: "Playwright", level: "intermediate", emoji: "🎭" },
     ],
   },
   {
@@ -43,20 +52,17 @@ const GROUPS: { icon: typeof Code2; title: string; items: Skill[] }[] = [
       { name: "Amazon Redshift", level: "proficient", emoji: "🟥" },
       { name: "S3 Data Lake", level: "proficient", emoji: "🪣" },
       { name: "Google BigQuery", level: "intermediate", logo: "googlecloud" },
-      { name: "MongoDB", level: "familiar", logo: "mongodb" },
     ],
   },
   {
     icon: Cloud,
     title: "Cloud & Infrastructure",
     items: [
-      { name: "Redshift Data API", level: "proficient", emoji: "🔌" },
       { name: "AWS S3", level: "proficient", emoji: "🪣" },
+      { name: "Redshift Data API", level: "proficient", emoji: "🔌" },
+      { name: "Docker", level: "intermediate", logo: "docker" },
       { name: "CloudWatch", level: "intermediate", emoji: "👁️" },
       { name: "IAM", level: "intermediate", emoji: "🔐" },
-      { name: "Docker", level: "intermediate", logo: "docker" },
-      { name: "Kubernetes / EKS", level: "familiar", logo: "kubernetes" },
-      { name: "GCP (BigQuery, Functions)", level: "familiar", logo: "googlecloud" },
     ],
   },
   {
@@ -65,20 +71,20 @@ const GROUPS: { icon: typeof Code2; title: string; items: Skill[] }[] = [
     items: [
       { name: "Grafana", level: "proficient", logo: "grafana" },
       { name: "Power BI", level: "proficient", emoji: "📊" },
-      { name: "RFM Segmentation", level: "proficient", emoji: "🎯" },
       { name: "Apache Superset", level: "intermediate", emoji: "📉" },
-      { name: "scikit-learn", level: "intermediate", logo: "scikitlearn" },
-      { name: "Demand Forecasting", level: "intermediate", emoji: "🔮" },
-      { name: "Metabase", level: "familiar", emoji: "📋" },
-      { name: "Mistral AI OCR", level: "familiar", emoji: "🔤" },
+      { name: "Redash", level: "intermediate", emoji: "📈" },
+      { name: "Google Analytics", level: "intermediate", emoji: "📶" },
     ],
   },
 ];
 
+// Shown as compact one-line strips below the grid, not as tag cards.
+const WORKFLOW = ["Git", "Jira", "Bitrix24", "Excel"];
+const STRENGTHS = ["Leadership", "Stakeholder Communication", "Problem-Solving", "Strategic Planning", "Adaptability"];
+
 const LEGEND: { level: Level; label: string }[] = [
   { level: "proficient", label: "Proficient" },
   { level: "intermediate", label: "Intermediate" },
-  { level: "familiar", label: "Familiar" },
   { level: "exploring", label: "Exploring" },
 ];
 
@@ -119,22 +125,32 @@ export default function FolioSkills() {
         </div>
 
         {/* Category cards */}
-        <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {GROUPS.map((g) => (
-            <div key={g.title} className="fo-card p-6">
-              <div className="flex items-center gap-3">
-                <span className="w-11 h-11 rounded-xl flex items-center justify-center" style={{ background: "var(--fo-accent-soft)", color: "var(--fo-accent)" }}>
-                  <g.icon size={20} />
+            <div key={g.title} className="fo-card p-5">
+              <div className="flex items-center gap-2.5">
+                <span className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "var(--fo-accent-soft)", color: "var(--fo-accent)" }}>
+                  <g.icon size={18} />
                 </span>
-                <h3 className="text-[17.5px] font-bold fo-ink">{g.title}</h3>
+                <h3 className="text-[15.5px] font-bold fo-ink leading-tight">{g.title}</h3>
               </div>
-              <div className="mt-5 flex flex-wrap gap-2">
+              <div className="mt-4 flex flex-wrap gap-2">
                 {g.items.map((s) => (
                   <SkillTag key={s.name} s={s} />
                 ))}
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Compact strips — kept out of the tag grid to reduce noise */}
+        <div className="mt-8 space-y-2.5 text-center">
+          <p className="text-[14.5px] fo-muted">
+            <span className="font-semibold fo-ink">Workflow &amp; Tools:</span> {WORKFLOW.join(" · ")}
+          </p>
+          <p className="text-[14.5px] fo-muted">
+            <span className="font-semibold fo-ink">Strengths:</span> {STRENGTHS.join(" · ")}
+          </p>
         </div>
       </div>
     </section>

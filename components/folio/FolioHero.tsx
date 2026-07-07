@@ -44,8 +44,9 @@ export default function FolioHero() {
 
           <p className="mt-6 text-[17px] leading-[1.75] max-w-2xl">
             I build complete data systems — pipelines, warehouses, dashboards,
-            and automation — that businesses run on every day. In 5+ years I
-            have worked with <strong className="fo-ink">6 fast-growing startups across 3 industries</strong>,
+            and automation — that businesses run on every day. Over 5+ years, as
+            the data engineer inside a data-analytics consultancy, I&apos;ve built the
+            full stack for <strong className="fo-ink">6 client companies across 3 industries</strong>,
             recovered <strong className="fo-ink">$1.05M in lost revenue</strong>, and eliminated{" "}
             <strong className="fo-ink">120+ hours of manual work every month</strong>.
           </p>

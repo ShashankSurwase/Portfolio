@@ -111,10 +111,6 @@ export default function FolioProjects() {
                     <h3 className="text-[18px] sm:text-[21px] font-bold fo-ink leading-tight">{selectedDomain.name}</h3>
                     <p className="text-[13px] fo-muted mt-0.5">{selectedDomain.clients} · {items.length} projects</p>
                   </div>
-                  <button onClick={() => setDetail(selectedDomain)} className="fo-btn-light !py-2 !px-3.5 !text-[12.5px] flex-shrink-0">
-                    <span className="hidden sm:inline">View full details</span><span className="sm:hidden">Details</span>
-                    <ArrowRight size={14} />
-                  </button>
                 </div>
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
