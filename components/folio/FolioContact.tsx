@@ -44,7 +44,7 @@ export default function FolioContact() {
         </div>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-[13px] fo-muted">
-          <span className="inline-flex items-center gap-2"><MapPin size={13} /> Pune, India · remote</span>
+          <span className="inline-flex items-center gap-2"><MapPin size={13} /> Pune, India</span>
           <span className="inline-flex items-center gap-2"><Clock size={13} /> Replies within 24 hours</span>
         </div>
       </div>

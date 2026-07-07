@@ -3,10 +3,10 @@ import { MapPin, Layers, Boxes, Briefcase, Sun } from "lucide-react";
 
 const FACTS = [
   { icon: Briefcase, label: "Role", value: "Senior Data & Analytics Engineer" },
-  { icon: Sun, label: "Focus now", value: "Solar EMS · IEC 61724 KPI standards" },
+  { icon: Sun, label: "Focus now", value: "Solar EMS" },
   { icon: Boxes, label: "Industries", value: "E-commerce · EdTech · Renewable Energy" },
   { icon: Layers, label: "Core stack", value: "Python · SQL · Airflow · AWS · Redshift" },
-  { icon: MapPin, label: "Based in", value: "Pune, India · remote-first" },
+  { icon: MapPin, label: "Based in", value: "Pune, India" },
 ];
 
 export default function FolioAbout() {

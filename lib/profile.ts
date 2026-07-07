@@ -14,7 +14,7 @@ export const PROFILE = {
   githubHref: "https://github.com/ShashankSurwase",
   linkedin: "linkedin.com/in/shashank-surwase",
   linkedinHref: "https://www.linkedin.com/in/shashank-surwase-b52701101/",
-  location: "Pune, India · remote-first",
+  location: "Pune, India",
   education: [
     "PG-DBDA, Big Data Analytics — C-DAC Pune (2021, Grade A)",
     "B.E. Electronics — MIT Academy of Engineering, Pune (2019, Grade A)",

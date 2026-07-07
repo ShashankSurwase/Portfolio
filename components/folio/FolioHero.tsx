@@ -30,12 +30,12 @@ const SOCIALS = [
 export default function FolioHero() {
   return (
     <section id="top" className="pt-32 pb-14 sm:pt-36 sm:pb-16">
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 grid lg:grid-cols-[1.25fr_0.75fr] gap-10 lg:gap-14 items-center">
-        <div>
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] gap-10 lg:gap-14 items-center">
+        <div className="min-w-0">
           <p className="text-[17px] font-medium" style={{ color: "var(--fo-accent)", fontFamily: "var(--font-poppins), Poppins, sans-serif" }}>
             Hello, I&apos;m
           </p>
-          <h1 className="mt-1 text-[40px] sm:text-[54px] leading-[1.1] font-bold">
+          <h1 className="mt-1 text-[34px] sm:text-[54px] leading-[1.1] font-bold break-words">
             {PROFILE.name}
           </h1>
           <p className="mt-2.5 text-[21px] sm:text-[25px] font-semibold" style={{ color: "var(--fo-accent)" }}>

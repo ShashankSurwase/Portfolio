@@ -131,7 +131,7 @@ export default function Contact() {
                   Response time: &lt; 24h
                 </div>
                 <div className="flex flex-wrap gap-1.5 pt-2">
-                  {["Remote-first", "Open to relocation", "Consulting OK", "Full-time"].map((t) => (
+                  {["Open to relocation", "Consulting OK", "Full-time"].map((t) => (
                     <span key={t} className="chip">{t}</span>
                   ))}
                 </div>

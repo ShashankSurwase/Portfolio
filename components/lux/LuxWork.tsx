@@ -71,7 +71,7 @@ export default function LuxWork() {
                 Senior Data Analyst &amp; Engineer — {PROFILE.company}
               </div>
               <div className="text-[13px] lx-muted mt-0.5">
-                Jul 2021 – Present · Remote · Pune, India
+                Jul 2021 – Present · Pune, India
               </div>
             </div>
           </div>

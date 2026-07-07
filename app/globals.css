@@ -626,6 +626,25 @@ body {
   transform: translateY(-5px);
   box-shadow: var(--fo-shadow-lg);
 }
+/* Project card: signal that the card body opens a case study */
+.folio .fo-proj-badge {
+  position: absolute; top: 10px; right: 10px;
+  background: var(--fo-accent); color: #fff;
+  font-family: var(--font-poppins), Poppins, sans-serif;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.02em;
+  padding: 4px 11px; border-radius: 100px;
+  opacity: 0; transform: translateY(-5px); pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 4px 12px rgba(67, 97, 238, 0.35);
+}
+.folio .fo-proj-btn:hover .fo-proj-badge,
+.folio .fo-proj-btn:focus-visible .fo-proj-badge { opacity: 1; transform: translateY(0); }
+.folio .fo-proj-cta { transition: color 0.2s ease; }
+.folio .fo-proj-btn:hover .fo-proj-cta { color: var(--fo-accent-deep); }
+/* Touch devices have no hover — keep the badge visible so the cue never hides */
+@media (hover: none) {
+  .folio .fo-proj-badge { opacity: 1; transform: translateY(0); }
+}
 .folio .fo-btn {
   display: inline-flex; align-items: center; gap: 8px;
   background: var(--fo-accent); color: #ffffff;

@@ -128,7 +128,7 @@ export default function StackAndContact() {
           </h2>
 
           <p className="lede mt-7 max-w-xl mx-auto">
-            Open to full-time roles and consulting engagements. Remote-first.
+            Open to full-time roles and consulting engagements.
             Reply within 24 hours.
           </p>
 

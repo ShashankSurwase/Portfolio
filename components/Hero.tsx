@@ -95,7 +95,7 @@ export default function Hero() {
 
             <div className="mt-6 flex flex-wrap items-center gap-2">
               <span className="chip"><span className="theme-text-muted">role:</span> open to new opportunities</span>
-              <span className="chip"><span className="theme-text-muted">location:</span> Pune, India · remote-first</span>
+              <span className="chip"><span className="theme-text-muted">location:</span> Pune, India</span>
               <span className="chip"><span className="theme-text-muted">stack:</span> Python · SQL · Airflow · ClickHouse</span>
             </div>
           </div>

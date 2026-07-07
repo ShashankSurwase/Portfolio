@@ -11,13 +11,13 @@ const ROLES = [
   {
     title: "Senior Data Analyst & Engineer",
     period: "Jun 2025 – Present",
-    focus: "Solar EMS & Team Lead",
+    focus: "Solar EMS · IEC 61724",
     points: [
       "Own the cloud Energy Management System end-to-end for a utility-scale solar producer — 245 plants monitored in real time to the IEC 61724 standard.",
       "Re-architected serverless IoT ingestion (SFTP → S3 → Lambda → Redshift): cut Lambda invocations 864k → 8.6k/month (−99%) and eliminated Redshift connection-limit failures.",
       "Rebuilt the KPI engine — Performance Ratio was silently 6–17× wrong across 13 dashboards — to within ±2% of IEC 61724, and added a real-time alarm engine cutting fault detection from T+1 day to ≤10 minutes.",
       "Automated Daily Generation Reports and tariff-based invoicing (95+ hrs/month saved); optimised databases and Airflow DAGs to cut infrastructure cost 20–30%.",
-      "Lead and mentor the analytics team (Jira / Bitrix24), owning client requirements and delivery across solar, e-commerce and edtech.",
+      "Own client requirements and delivery end-to-end across solar, e-commerce and edtech (Jira / Bitrix24).",
     ],
   },
   {
@@ -129,15 +129,15 @@ export default function FolioJourney() {
                       <Briefcase size={17} />
                     </span>
                     <span className="min-w-0 flex-1">
-                      <span className="block text-[16px] sm:text-[17.5px] font-bold fo-ink leading-tight">{r.title}</span>
+                      <span className="block text-[16px] sm:text-[17.5px] font-bold fo-ink leading-tight break-words">{r.title}</span>
                       <span
-                        className="block text-[13px] font-semibold"
+                        className="block text-[13px] font-semibold mt-0.5"
                         style={{ color: "var(--fo-accent)", fontFamily: "var(--font-poppins), Poppins, sans-serif" }}
                       >
                         {r.period}
                       </span>
+                      <span className="fo-tag !text-[11px] mt-2 inline-flex max-w-full">{r.focus}</span>
                     </span>
-                    <span className="hidden sm:inline-flex fo-tag !text-[12px] flex-shrink-0">{r.focus}</span>
                     <ChevronDown
                       size={19}
                       className="flex-shrink-0 transition-transform duration-300"

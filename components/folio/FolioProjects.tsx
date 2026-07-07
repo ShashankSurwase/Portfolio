@@ -139,15 +139,21 @@ export default function FolioProjects() {
                       className="fo-card fo-card-hover fo-fade-up flex flex-col overflow-hidden"
                       style={{ animationDelay: `${i * 45}ms` }}
                     >
-                      <button onClick={() => setDetail(selectedDomain)} className="flex flex-col text-left cursor-pointer flex-1">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={`${COVER}/${p.id}.svg`} alt={p.title} width={640} height={360} className="w-full" style={{ aspectRatio: "16 / 9", objectFit: "cover" }} />
+                      <button onClick={() => setDetail(selectedDomain)} className="fo-proj-btn group flex flex-col text-left cursor-pointer flex-1">
+                        <span className="relative block w-full overflow-hidden">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={`${COVER}/${p.id}.svg`} alt={p.title} width={640} height={360} className="w-full block transition-transform duration-300 group-hover:scale-[1.04]" style={{ aspectRatio: "16 / 9", objectFit: "cover" }} />
+                          <span className="fo-proj-badge">Click to explore</span>
+                        </span>
                         <div className="p-5 flex flex-col flex-1">
                           <h3 className="text-[16px] font-bold leading-snug fo-ink">{p.title}</h3>
                           <p className="mt-2 text-[13.5px] leading-relaxed fo-muted flex-1">{p.impact}</p>
                           <div className="mt-3.5 flex flex-wrap gap-1.5">
                             {p.tags.map((t) => (<span key={t} className="fo-tag !text-[11px]">{t}</span>))}
                           </div>
+                          <span className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold fo-proj-cta" style={{ color: "var(--fo-accent)" }}>
+                            View case study <ArrowRight size={13} className="transition-transform duration-200 group-hover:translate-x-1" />
+                          </span>
                         </div>
                       </button>
                       <a
