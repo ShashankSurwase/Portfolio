@@ -1,12 +1,13 @@
 "use client";
-import { Mail, Phone, Link2, GitBranch, MapPin, Clock } from "lucide-react";
+import { MapPin, Clock } from "lucide-react";
 import { PROFILE } from "@/lib/profile";
 
+const LOGO = "/Portfolio/logos";
 const CHANNELS = [
-  { icon: Mail, label: "Email", value: PROFILE.email, href: PROFILE.emailHref },
-  { icon: Phone, label: "Phone / WhatsApp", value: PROFILE.phone, href: PROFILE.phoneHref },
-  { icon: Link2, label: "LinkedIn", value: PROFILE.linkedin, href: PROFILE.linkedinHref },
-  { icon: GitBranch, label: "GitHub", value: PROFILE.github, href: PROFILE.githubHref },
+  { logo: "gmail", label: "Email", value: PROFILE.email, href: PROFILE.emailHref },
+  { logo: "whatsapp", label: "Phone / WhatsApp", value: PROFILE.phone, href: PROFILE.phoneHref },
+  { logo: "linkedin", label: "LinkedIn", value: PROFILE.linkedin, href: PROFILE.linkedinHref },
+  { logo: "github", label: "GitHub", value: PROFILE.github, href: PROFILE.githubHref },
 ];
 
 export default function FolioContact() {
@@ -30,8 +31,9 @@ export default function FolioContact() {
               rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
               className="fo-card fo-card-hover flex items-center gap-4 p-5"
             >
-              <span className="w-11 h-11 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "var(--fo-accent-soft)", color: "var(--fo-accent)" }}>
-                <c.icon size={18} />
+              <span className="w-11 h-11 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "var(--fo-bg-soft)", border: "1px solid var(--fo-border)" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`${LOGO}/${c.logo}.svg`} alt="" width={20} height={20} style={{ width: 20, height: 20, objectFit: "contain" }} />
               </span>
               <span className="min-w-0">
                 <span className="block text-[11px] font-bold tracking-widest uppercase fo-muted">{c.label}</span>
