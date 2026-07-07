@@ -1,5 +1,5 @@
 "use client";
-import { MapPin, Clock } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { PROFILE } from "@/lib/profile";
 
 const LOGO = "/Portfolio/logos";
@@ -19,7 +19,7 @@ export default function FolioContact() {
         <p className="mt-4 text-[16px] font-medium fo-ink">Let&apos;s work together</p>
         <p className="mt-4 text-[15px] leading-relaxed max-w-lg mx-auto">
           Open to full-time roles and consulting projects in data engineering
-          and analytics. I reply within 24 hours.
+          and analytics.
         </p>
 
         <div className="mt-9 grid sm:grid-cols-2 gap-4 text-left">
@@ -45,7 +45,6 @@ export default function FolioContact() {
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-[13px] fo-muted">
           <span className="inline-flex items-center gap-2"><MapPin size={13} /> Pune, India</span>
-          <span className="inline-flex items-center gap-2"><Clock size={13} /> Replies within 24 hours</span>
         </div>
       </div>
     </section>
