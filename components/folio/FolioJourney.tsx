@@ -11,7 +11,7 @@ const ROLES = [
   {
     title: "Senior Data Analyst & Engineer",
     period: "Jun 2025 – Present",
-    focus: "Solar EMS · IEC 61724",
+    focus: "Solar EMS",
     points: [
       "Own the cloud Energy Management System end-to-end for a utility-scale solar producer — 245 plants monitored in real time to the IEC 61724 standard.",
       "Re-architected serverless IoT ingestion (SFTP → S3 → Lambda → Redshift): cut Lambda invocations 864k → 8.6k/month (−99%) and eliminated Redshift connection-limit failures.",
