@@ -16,8 +16,8 @@ export default function FolioStats() {
             <div className="text-[34px] sm:text-[40px] font-extrabold tracking-tight" style={{ color: "var(--fo-accent)" }}>
               {s.value}
             </div>
-            <div className="mt-1 text-[13.5px] font-semibold fo-ink">{s.label}</div>
-            <div className="mt-0.5 text-[12.5px] fo-muted">{s.desc}</div>
+            <div className="mt-1 text-[15px] font-semibold fo-ink">{s.label}</div>
+            <div className="mt-0.5 text-[13.5px] fo-muted">{s.desc}</div>
           </div>
         ))}
       </div>

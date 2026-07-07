@@ -13,7 +13,7 @@ export default function FolioContact() {
   return (
     <section id="contact" className="py-16 sm:py-24" style={{ background: "var(--fo-bg-soft)", borderTop: "1px solid var(--fo-border)" }}>
       <div className="max-w-4xl mx-auto px-5 sm:px-8 text-center">
-        <h2 className="text-[30px] sm:text-[36px] font-bold">Contact</h2>
+        <h2 className="text-[32px] sm:text-[40px] font-bold">Contact</h2>
         <div className="fo-underline fo-underline-center" />
         <p className="mt-4 text-[16px] font-medium fo-ink">Let&apos;s work together</p>
         <p className="mt-4 text-[15px] leading-relaxed max-w-lg mx-auto">

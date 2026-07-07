@@ -560,18 +560,40 @@ body {
   --fo-card: #ffffff;
   --fo-border: #e0e0e0;
   --fo-border-strong: #cccccc;
-  --fo-ink: #333333;
-  --fo-body: #555555;
-  --fo-muted: #666666;
+  --fo-ink: #222222;
+  --fo-body: #3a3a3a;
+  --fo-muted: #565656;
   --fo-accent: #4361ee;
   --fo-accent-deep: #3f37c9;
   --fo-accent-soft: rgba(67, 97, 238, 0.08);
   --fo-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   --fo-shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.1);
+  --fo-nav-scrolled: rgba(255, 255, 255, 0.9);
   background: var(--fo-bg);
   color: var(--fo-body);
   font-family: var(--font-roboto), Roboto, -apple-system, "Segoe UI", Arial, sans-serif;
   font-feature-settings: "tnum";
+  font-size: 16px;
+  line-height: 1.65;
+}
+/* Dark folio — exact reference dark-theme values (base.css .dark-theme) */
+.dark .folio {
+  --fo-bg: #121212;
+  --fo-bg-soft: #1e1e1e;
+  --fo-card: #2a2a2a;
+  --fo-border: #444444;
+  --fo-border-strong: #5a5a5a;
+  --fo-ink: #f5f5f5;
+  --fo-body: #e0e0e0;
+  --fo-muted: #b0b0b0;
+  --fo-accent: #4895ef;
+  --fo-accent-deep: #3f8efc;
+  --fo-accent-soft: rgba(72, 149, 239, 0.14);
+  --fo-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  --fo-shadow-lg: 0 10px 28px rgba(0, 0, 0, 0.55);
+  --fo-nav-scrolled: rgba(18, 18, 18, 0.9);
+  background: var(--fo-bg);
+  color: var(--fo-body);
 }
 .folio h1, .folio h2, .folio h3, .folio h4 {
   color: var(--fo-ink);
@@ -608,8 +630,8 @@ body {
   display: inline-flex; align-items: center; gap: 8px;
   background: var(--fo-accent); color: #ffffff;
   font-family: var(--font-poppins), Poppins, sans-serif;
-  font-size: 13.5px; font-weight: 500;
-  padding: 12px 24px; border-radius: 8px;
+  font-size: 15px; font-weight: 500;
+  padding: 13px 26px; border-radius: 8px;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 .folio .fo-btn:hover { transform: translateY(-2px); background: var(--fo-accent-deep); box-shadow: 0 8px 20px rgba(67, 97, 238, 0.3); }
@@ -618,27 +640,117 @@ body {
   background: var(--fo-card); color: var(--fo-ink);
   border: 1px solid var(--fo-border);
   font-family: var(--font-poppins), Poppins, sans-serif;
-  font-size: 13.5px; font-weight: 500;
-  padding: 12px 24px; border-radius: 8px;
+  font-size: 15px; font-weight: 500;
+  padding: 13px 26px; border-radius: 8px;
   transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 .folio .fo-btn-light:hover { transform: translateY(-2px); border-color: var(--fo-accent); color: var(--fo-accent); box-shadow: var(--fo-shadow); }
 .folio .fo-tag {
   display: inline-flex; align-items: center;
   background: var(--fo-accent-soft); color: var(--fo-accent);
-  font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: 100px;
+  font-size: 13px; font-weight: 500; padding: 5px 13px; border-radius: 100px;
 }
 .folio .fo-chip {
   display: inline-flex; align-items: center; gap: 6px;
   background: var(--fo-accent-soft); color: var(--fo-accent);
   font-family: var(--font-poppins), Poppins, sans-serif;
-  font-size: 12.5px; font-weight: 500; padding: 5px 14px; border-radius: 100px;
+  font-size: 13.5px; font-weight: 500; padding: 6px 15px; border-radius: 100px;
   border: 1px solid rgba(67, 97, 238, 0.18);
 }
 .folio .fo-navlink {
   font-family: var(--font-poppins), Poppins, sans-serif;
-  font-size: 14px; font-weight: 500; color: var(--fo-ink);
+  font-size: 15px; font-weight: 500; color: var(--fo-ink);
   transition: color 0.2s ease;
 }
 .folio .fo-navlink:hover { color: var(--fo-accent); }
 .folio ::selection { background: var(--fo-accent); color: #fff; }
+
+/* ── Skills marquee (2 sliding rows) ─────────────────────────── */
+@keyframes foMarqueeLeft  { from { transform: translateX(0); }      to { transform: translateX(-50%); } }
+@keyframes foMarqueeRight { from { transform: translateX(-50%); }   to { transform: translateX(0); } }
+.folio .fo-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+.folio .fo-marquee-track { display: inline-flex; gap: 10px; width: max-content; will-change: transform; }
+.folio .fo-marquee-l .fo-marquee-track { animation: foMarqueeLeft 34s linear infinite; }
+.folio .fo-marquee-r .fo-marquee-track { animation: foMarqueeRight 38s linear infinite; }
+.folio .fo-marquee:hover .fo-marquee-track { animation-play-state: paused; }
+.folio .fo-skill-pill {
+  display: inline-flex; align-items: center; white-space: nowrap;
+  background: var(--fo-card); border: 1px solid var(--fo-border); color: var(--fo-ink);
+  font-family: var(--font-poppins), Poppins, sans-serif;
+  font-size: 13.5px; font-weight: 500; padding: 9px 18px; border-radius: 100px;
+  box-shadow: var(--fo-shadow); transition: border-color 0.2s ease, color 0.2s ease;
+}
+.folio .fo-skill-pill:hover { border-color: var(--fo-accent); color: var(--fo-accent); }
+
+/* ── Skill proficiency tags (exact reference color-coding) ──────── */
+.folio .fo-lvl {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--font-poppins), Poppins, sans-serif;
+  font-size: 14px; font-weight: 500;
+  padding: 9px 15px; border-radius: 11px;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.folio .fo-lvl:hover { transform: translateY(-3px); }
+/* Proficient — green */
+.folio .fo-lvl[data-level="proficient"] {
+  background: linear-gradient(135deg, rgba(52,211,153,0.15), rgba(52,211,153,0.08));
+  border-color: rgba(52,211,153,0.30); color: rgb(6,95,70); font-weight: 600;
+}
+.folio .fo-lvl[data-level="proficient"]:hover { box-shadow: 0 4px 12px rgba(52,211,153,0.2); }
+/* Intermediate — blue */
+.folio .fo-lvl[data-level="intermediate"] {
+  background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(59,130,246,0.08));
+  border-color: rgba(59,130,246,0.30); color: rgb(29,78,216);
+}
+.folio .fo-lvl[data-level="intermediate"]:hover { box-shadow: 0 4px 12px rgba(59,130,246,0.2); }
+/* Exploring — purple */
+.folio .fo-lvl[data-level="exploring"] {
+  background: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(139,92,246,0.08));
+  border-color: rgba(139,92,246,0.30); color: rgb(76,29,149);
+}
+.folio .fo-lvl[data-level="exploring"]:hover { box-shadow: 0 4px 12px rgba(139,92,246,0.2); }
+/* Familiar — amber */
+.folio .fo-lvl[data-level="familiar"] {
+  background: linear-gradient(135deg, rgba(255,153,0,0.12), rgba(255,153,0,0.06));
+  border-color: rgba(255,153,0,0.25); color: rgb(180,83,9);
+}
+.folio .fo-lvl[data-level="familiar"]:hover { box-shadow: 0 4px 12px rgba(255,153,0,0.2); }
+/* Dark-theme text/border overrides (reference values) */
+.dark .folio .fo-lvl[data-level="proficient"] { color: #34ffb4; border-color: rgba(52,255,180,0.4); }
+.dark .folio .fo-lvl[data-level="intermediate"] { color: #7cb8ff; border-color: rgba(124,184,255,0.4); }
+.dark .folio .fo-lvl[data-level="exploring"] { color: #c7a6ff; border-color: rgba(199,166,255,0.4); }
+.dark .folio .fo-lvl[data-level="familiar"] { color: #ffd580; border-color: rgba(255,213,128,0.4); }
+/* Legend dots */
+.folio .fo-legend-dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+.folio .fo-legend-dot.proficient { background: rgb(52,211,153); }
+.folio .fo-legend-dot.intermediate { background: rgb(59,130,246); }
+.folio .fo-legend-dot.exploring { background: rgb(139,92,246); }
+.folio .fo-legend-dot.familiar { background: rgb(255,153,0); }
+
+/* ── Projects filter tabs + fade-in ──────────────────────────── */
+@keyframes foFadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.folio .fo-fade-up { animation: foFadeUp 0.4s ease both; }
+.folio .fo-pill-tab {
+  font-family: var(--font-poppins), Poppins, sans-serif;
+  font-size: 15px; font-weight: 500; padding: 9px 20px; border-radius: 100px;
+  border: 1px solid var(--fo-border); color: var(--fo-ink); background: var(--fo-card);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.folio .fo-pill-tab:hover { border-color: var(--fo-accent); color: var(--fo-accent); }
+.folio .fo-pill-tab.is-active { background: var(--fo-accent); border-color: var(--fo-accent); color: #fff; }
+
+/* ── Hero photo ──────────────────────────────────────────────── */
+.folio .fo-photo {
+  width: 100%; border-radius: 16px; border: 1px solid var(--fo-border);
+  box-shadow: var(--fo-shadow-lg); object-fit: cover;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .folio .fo-marquee-track { animation: none !important; }
+  .folio .fo-fade-up { animation: none !important; }
+}

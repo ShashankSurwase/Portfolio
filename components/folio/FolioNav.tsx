@@ -1,10 +1,31 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Link2, GitBranch, Download, Menu, X } from "lucide-react";
+import { Download, Menu, X, Sun, Moon } from "lucide-react";
 import { PROFILE } from "@/lib/profile";
+import { useTheme } from "@/components/ThemeProvider";
+
+function FolioThemeToggle() {
+  const { theme, toggle } = useTheme();
+  return (
+    <button
+      onClick={toggle}
+      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+      title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+      className="inline-flex items-center justify-center w-9 h-9 rounded-lg transition-colors"
+      style={{
+        background: "var(--fo-card)",
+        border: "1px solid var(--fo-border)",
+        color: "var(--fo-ink)",
+      }}
+    >
+      {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+    </button>
+  );
+}
 
 const LINKS = [
-  { href: "#domains", label: "Domains" },
+  { href: "#about", label: "About" },
+  { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
   { href: "#contact", label: "Contact" },
@@ -25,7 +46,7 @@ export default function FolioNav() {
     <header
       className="fixed top-0 left-0 right-0 z-40 transition-all duration-300"
       style={{
-        background: scrolled ? "rgba(255,255,255,0.9)" : "transparent",
+        background: scrolled ? "var(--fo-nav-scrolled)" : "transparent",
         backdropFilter: scrolled ? "blur(10px)" : "none",
         WebkitBackdropFilter: scrolled ? "blur(10px)" : "none",
         borderBottom: scrolled ? "1px solid var(--fo-border)" : "1px solid transparent",
@@ -49,24 +70,22 @@ export default function FolioNav() {
         </nav>
 
         <div className="hidden md:flex items-center gap-2.5">
-          <a href={PROFILE.linkedinHref} target="_blank" rel="noopener noreferrer" className="fo-btn-light !py-2 !px-3.5 !text-[12.5px]">
-            <Link2 size={14} /> LinkedIn
-          </a>
-          <a href={PROFILE.githubHref} target="_blank" rel="noopener noreferrer" className="fo-btn-light !py-2 !px-3.5 !text-[12.5px]">
-            <GitBranch size={14} /> GitHub
-          </a>
           <a href={PROFILE.resumeHref} target="_blank" rel="noopener noreferrer" className="fo-btn !py-2 !px-3.5 !text-[12.5px]">
             <Download size={14} /> Resume
           </a>
+          <FolioThemeToggle />
         </div>
 
-        <button
-          aria-label={open ? "Close menu" : "Open menu"}
-          onClick={() => setOpen(!open)}
-          className="md:hidden fo-ink p-2"
-        >
-          {open ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        <div className="flex md:hidden items-center gap-2">
+          <FolioThemeToggle />
+          <button
+            aria-label={open ? "Close menu" : "Open menu"}
+            onClick={() => setOpen(!open)}
+            className="fo-ink p-2"
+          >
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </div>
 
       {open && (
@@ -77,12 +96,6 @@ export default function FolioNav() {
             </a>
           ))}
           <div className="flex flex-wrap items-center gap-2.5 pt-2">
-            <a href={PROFILE.linkedinHref} target="_blank" rel="noopener noreferrer" className="fo-btn-light !py-2 !px-3.5 !text-[12px]">
-              <Link2 size={13} /> LinkedIn
-            </a>
-            <a href={PROFILE.githubHref} target="_blank" rel="noopener noreferrer" className="fo-btn-light !py-2 !px-3.5 !text-[12px]">
-              <GitBranch size={13} /> GitHub
-            </a>
             <a href={PROFILE.resumeHref} target="_blank" rel="noopener noreferrer" className="fo-btn !py-2 !px-3.5 !text-[12px]">
               <Download size={13} /> Resume
             </a>

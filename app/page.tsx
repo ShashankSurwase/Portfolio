@@ -1,7 +1,8 @@
 import FolioNav from "@/components/folio/FolioNav";
 import FolioHero from "@/components/folio/FolioHero";
+import FolioAbout from "@/components/folio/FolioAbout";
 import FolioStats from "@/components/folio/FolioStats";
-import FolioDomains from "@/components/folio/FolioDomains";
+import FolioJourney from "@/components/folio/FolioJourney";
 import FolioProjects from "@/components/folio/FolioProjects";
 import FolioSkills from "@/components/folio/FolioSkills";
 import FolioContact from "@/components/folio/FolioContact";
@@ -13,8 +14,9 @@ export default function Home() {
       <FolioNav />
       <main>
         <FolioHero />
+        <FolioAbout />
         <FolioStats />
-        <FolioDomains />
+        <FolioJourney />
         <FolioProjects />
         <FolioSkills />
         <FolioContact />
