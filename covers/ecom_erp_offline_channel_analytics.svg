@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" font-family="Poppins, Segoe UI, Arial, sans-serif">
+<defs>
+  <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#4f46e5"/><stop offset="1" stop-color="#7c3aed"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="0.82" cy="0.12" r="0.7">
+    <stop offset="0" stop-color="#a78bfa" stop-opacity="0.55"/><stop offset="1" stop-color="#a78bfa" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<rect width="640" height="360" fill="url(#g)"/>
+<rect width="640" height="360" fill="url(#glow)"/>
+<g stroke="#fff" stroke-opacity="0.06" stroke-width="1">
+  <line x1="0" y1="0" x2="0" y2="360"/><line x1="55" y1="0" x2="55" y2="360"/><line x1="110" y1="0" x2="110" y2="360"/><line x1="165" y1="0" x2="165" y2="360"/><line x1="220" y1="0" x2="220" y2="360"/><line x1="275" y1="0" x2="275" y2="360"/><line x1="330" y1="0" x2="330" y2="360"/><line x1="385" y1="0" x2="385" y2="360"/><line x1="440" y1="0" x2="440" y2="360"/><line x1="495" y1="0" x2="495" y2="360"/><line x1="550" y1="0" x2="550" y2="360"/><line x1="605" y1="0" x2="605" y2="360"/>
+  <line x1="0" y1="0" x2="640" y2="0"/><line x1="0" y1="55" x2="640" y2="55"/><line x1="0" y1="110" x2="640" y2="110"/><line x1="0" y1="165" x2="640" y2="165"/><line x1="0" y1="220" x2="640" y2="220"/><line x1="0" y1="275" x2="640" y2="275"/><line x1="0" y1="330" x2="640" y2="330"/>
+</g>
+<path d="M205 110 L320 90 L435 110 L320 130 Z" fill="#fff" fill-opacity="0.90"/><path d="M205 156 L320 136 L435 156 L320 176 Z" fill="#fff" fill-opacity="0.72"/><path d="M205 202 L320 182 L435 202 L320 222 Z" fill="#fff" fill-opacity="0.54"/><path d="M205 248 L320 228 L435 248 L320 268 Z" fill="#fff" fill-opacity="0.36"/>
+<text x="40" y="52" fill="#fff" fill-opacity="0.95" font-size="15" font-weight="700" letter-spacing="3">E-COMMERCE</text>
+<text x="600" y="70" fill="#fff" fill-opacity="0.28" font-size="64" font-weight="800" text-anchor="end">17</text>
+<text x="40" y="306" fill="#fff" font-size="34" font-weight="800">1.8%</text>
+<text x="42" y="330" fill="#fff" fill-opacity="0.85" font-size="15" font-weight="500">GT return rate</text>
+</svg>
