@@ -120,7 +120,7 @@ export const DOMAINS: DomainDetail[] = [
     tagline:
       "Cloud energy-management platform for a utility-scale solar power producer — 245 plants across India, monitored to the IEC 61724 standard.",
     overview:
-      "A solar Independent Power Producer operating 245 plants (utility ground-mount, rooftop and captive). I owned every layer: IoT ingestion from plant dataloggers, ETL, the KPI engine, 13 dashboard surfaces, and billing/alarm automation. The two signature pieces: fixing performance KPIs that were silently 6–17× wrong, and re-architecting ingestion that was about to fail at scale.",
+      "A solar Independent Power Producer operating 245 plants (utility ground-mount, rooftop and captive). I owned every layer: IoT ingestion from plant dataloggers, ETL, the KPI engine, 13 dashboard surfaces, and billing/alarm automation. Signature pieces: fixing performance KPIs that were silently 6–17× wrong, re-architecting ingestion that was about to fail at scale, and adding a real-time Kinesis streaming lane feeding a two-layer staged ETL built to scale toward a 500-plant target.",
     engagements: [
       {
         title: "IoT ingestion & warehouse",
@@ -128,6 +128,8 @@ export const DOMAINS: DomainDetail[] = [
           "Dual-protocol ingestion for two datalogger families (Modbus register parsing with scaling maps, and pre-scaled CSV) → SFTP → S3 → Lambda → Redshift; ~70,560 file events per day, historic archive backfilled to June 2021.",
           "Re-architected a Lambda-per-file design hitting Redshift's 500-connection hard limit into one scheduled ETL via Redshift Data API: 864,000 → 8,600 invocations/month (−99%), zero connection failures, headroom for 1,000+ plants.",
           "10M+ row analytics table with watermark incremental loads, 36-hour lookback for late data, deduplication and atomic writes; plant-to-dashboard freshness ≤10 minutes.",
+          "Added a real-time streaming lane — producer → Kinesis → Redshift streaming materialized view — cutting latency from minutes to seconds, with a per-shard sequence-number watermark for exactly-once loads and a grouped-JSON payload 86% smaller than the CSV.",
+          "Re-engineered the KPI ETL into a two-layer staged pipeline (Base ETL → clean fact table, then a Formula ETL of parallel workers applying per-site compiled-SQL overrides), idempotent on a site-name/device/timestamp key and keyed on an immutable site slug rather than fragile cross-database integer ids.",
         ],
       },
       {
@@ -143,17 +145,17 @@ export const DOMAINS: DomainDetail[] = [
     metrics: [
       "245 plants",
       "≤10 min freshness",
+      "seconds via streaming",
       "10M+ rows",
       "−99% Lambda cost",
       "±2% of IEC 61724",
       "13 dashboards · 12 roles",
       "95+ hrs/month saved",
-      "≤10 min fault detection",
     ],
     dataFlow:
-      "Plant dataloggers (5-min polling) → SFTP → S3 → parsing Lambda → Redshift Auto-Copy → scheduled ETL (Redshift Data API) → KPI engine (IEC 61724) → FastAPI → 13 Grafana dashboards + automated reports, invoices and alarms",
+      "Plant dataloggers (5-min polling) → SFTP → S3 → parsing Lambda → { real-time: Kinesis → Redshift streaming MV · batch: Auto-Copy } → two-layer staged ETL (Base → Formula, Redshift Data API) → KPI engine (IEC 61724) → FastAPI → 13 Grafana dashboards + automated reports, invoices and alarms",
     stack: [
-      "Python", "SQL", "AWS Lambda", "Amazon Redshift", "EventBridge", "S3",
+      "Python", "SQL", "AWS Lambda", "Amazon Redshift", "Kinesis", "EventBridge", "S3",
       "PostgreSQL", "FastAPI", "Grafana", "SFTPGo", "Docker / Kubernetes", "Modbus / IoT",
     ],
   },

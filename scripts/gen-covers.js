@@ -164,6 +164,7 @@ const COVERS = [
   { id: "energy_plant_onboarding_registration", domain: "energy", kicker: "RENEWABLE ENERGY", num: "32", motif: "grid", metric: "2-4 hrs", label: "plant go-live" },
   { id: "energy_security_vapt_readiness", domain: "energy", kicker: "RENEWABLE ENERGY", num: "33", motif: "radar", metric: "13 findings", label: "VAPT-graded & fixed" },
   { id: "energy_historic_data_backfill", domain: "energy", kicker: "RENEWABLE ENERGY", num: "34", motif: "area", metric: "47 archives", label: "4+ yrs recovered" },
+  { id: "energy_realtime_streaming_migration", domain: "energy", kicker: "RENEWABLE ENERGY", num: "35", motif: "waveform", metric: "min → sec", label: "real-time streaming" },
 ];
 
 function cover(c) {
