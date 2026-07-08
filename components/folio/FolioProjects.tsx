@@ -209,20 +209,15 @@ export default function FolioProjects() {
                           <div className="mt-3.5 flex flex-wrap gap-1.5">
                             {p.tags.map((t) => (<span key={t} className="fo-tag !text-[11px]">{t}</span>))}
                           </div>
-                          <span className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-semibold fo-proj-cta" style={{ color: "var(--fo-accent)" }}>
-                            View case study <ArrowRight size={13} className="transition-transform duration-200 group-hover:translate-x-1" />
-                          </span>
                         </div>
                       </button>
-                      <a
-                        href={p.repo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-1.5 px-5 py-3 text-[13px] font-semibold fo-ink transition-colors"
-                        style={{ borderTop: "1px solid var(--fo-border)", background: "var(--fo-bg-soft)" }}
+                      <button
+                        onClick={() => setProjDetail(p)}
+                        className="flex items-center justify-center gap-1.5 px-5 py-3 text-[13px] font-semibold transition-colors"
+                        style={{ borderTop: "1px solid var(--fo-border)", background: "var(--fo-bg-soft)", color: "var(--fo-accent)" }}
                       >
-                        <Github size={15} /> View code on GitHub <ArrowRight size={13} />
-                      </a>
+                        View case study <ArrowRight size={13} />
+                      </button>
                     </div>
                   ))}
                 </div>
@@ -334,11 +329,6 @@ export default function FolioProjects() {
                 <div>
                   <div className="fo-kicker mb-3">Tech</div>
                   <div className="flex flex-wrap gap-1.5">{projDetail.tags.map((t) => (<span key={t} className="fo-tag">{t}</span>))}</div>
-                </div>
-                <div className="pb-2">
-                  <a href={projDetail.repo} target="_blank" rel="noopener noreferrer" className="fo-btn !py-2.5 !px-4 !text-[13px] inline-flex">
-                    <Github size={15} /> View code on GitHub <ArrowRight size={14} />
-                  </a>
                 </div>
               </div>
             </motion.div>
