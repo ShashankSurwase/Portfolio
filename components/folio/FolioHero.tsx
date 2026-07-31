@@ -55,14 +55,6 @@ export default function FolioHero() {
             <a href="#projects" className="fo-btn">
               See my work <ArrowRight size={15} />
             </a>
-            <a
-              href={PROFILE.resumeHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="fo-btn-light"
-            >
-              <Download size={15} /> Download Resume
-            </a>
             <a href="#contact" className="fo-btn-light">
               <Mail size={15} /> Contact me
             </a>
