@@ -14,7 +14,6 @@
   <line x1="0" y1="0" x2="640" y2="0"/><line x1="0" y1="55" x2="640" y2="55"/><line x1="0" y1="110" x2="640" y2="110"/><line x1="0" y1="165" x2="640" y2="165"/><line x1="0" y1="220" x2="640" y2="220"/><line x1="0" y1="275" x2="640" y2="275"/><line x1="0" y1="330" x2="640" y2="330"/>
 </g>
 <path d="M320.0 84.0 A96 96 0 0 1 366.2 264.1" fill="none" stroke="#fff" stroke-opacity="0.95" stroke-width="40"/><path d="M362.0 266.3 A96 96 0 0 1 236.5 227.3" fill="none" stroke="#fff" stroke-opacity="0.7" stroke-width="40"/><path d="M234.2 223.1 A96 96 0 0 1 248.4 116.1" fill="none" stroke="#fff" stroke-opacity="0.5" stroke-width="40"/><path d="M251.6 112.6 A96 96 0 0 1 334.3 85.1" fill="none" stroke="#fff" stroke-opacity="0.32" stroke-width="40"/>
-<text x="40" y="52" fill="#fff" fill-opacity="0.95" font-size="15" font-weight="700" letter-spacing="3">E-COMMERCE</text>
 <text x="600" y="70" fill="#fff" fill-opacity="0.28" font-size="64" font-weight="800" text-anchor="end">04</text>
 <text x="40" y="306" fill="#fff" font-size="34" font-weight="800">Top 20% = 70–80%</text>
 <text x="42" y="330" fill="#fff" fill-opacity="0.85" font-size="15" font-weight="500">of revenue identified</text>

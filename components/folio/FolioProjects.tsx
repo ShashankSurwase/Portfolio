@@ -337,8 +337,7 @@ export default function FolioProjects() {
               </div>
               <div className="px-6 sm:px-8 py-6 space-y-6">
                 <div>
-                  <span className="fo-chip !text-[11px] !py-1 !px-2.5">{projDetail.domain}</span>
-                  <h3 className="text-[21px] sm:text-[25px] font-bold leading-tight fo-ink mt-2.5">{projDetail.title}</h3>
+                  <h3 className="text-[21px] sm:text-[25px] font-bold leading-tight fo-ink">{projDetail.title}</h3>
                 </div>
                 <p className="text-[15px] leading-relaxed">{DETAILS[projDetail.id]?.blurb ?? projDetail.impact}</p>
                 {DETAILS[projDetail.id]?.results?.length ? (
