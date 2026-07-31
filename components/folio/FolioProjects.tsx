@@ -28,10 +28,10 @@ const repoUrl = (domain: "E-commerce" | "EdTech" | "Energy", n: number) =>
 // `repo` opens the matching Project-NN folder in that domain's GitHub repository.
 type Project = { id: string; title: string; domain: "E-commerce" | "EdTech" | "Energy"; impact: string; tags: string[]; repo: string };
 const PROJECTS: Project[] = [
-  // 🛒 E-COMMERCE & RETAIL FLAGSHIPS
+  // 🛒 E-COMMERCE & RETAIL
   {
     id: "ecom_multi_marketplace_airflow_etl",
-    title: "Flagship 1: E-commerce Multi-Client Data Engineering Platform",
+    title: "E-commerce Multi-Client Data Engineering Platform",
     domain: "E-commerce",
     impact: "Apache Airflow 131-DAG production framework ingesting 31 source systems (Amazon SP-API, Vendor Central, Flipkart, Myntra, Ajio, Blinkit, Swiggy, Zepto) into a dual PostgreSQL & ClickHouse data warehouse.",
     tags: ["Apache Airflow (131 DAGs)", "31 Source Systems", "PostgreSQL", "ClickHouse", "AWS S3 Landing"],
@@ -39,17 +39,17 @@ const PROJECTS: Project[] = [
   },
   {
     id: "ecom_unified_sales_inventory_facts",
-    title: "Flagship 2: E-commerce Unified Sales & DIVAS Inventory Analytics Suite",
+    title: "E-commerce Unified Sales & DIVAS Inventory Analytics Suite",
     domain: "E-commerce",
     impact: "Unified 12 sales platforms into a 129-col all_sales master fact and 9 facility types into a 92-col DIVAS inventory decision engine. Recovered $1.05M in unattributed UAE revenue and powers 28 production BI dashboards.",
     tags: ["ClickHouse DWH (30+ Tables)", "$1.05M ASIN Recovery", "DIVAS Inventory", "Apache Superset", "Power BI"],
     repo: repoUrl("E-commerce", 2),
   },
 
-  // 🎓 EDTECH & ACADEMIC ANALYTICS FLAGSHIPS
+  // 🎓 EDTECH & ACADEMIC ANALYTICS
   {
     id: "edtech_multi_source_etl_platform",
-    title: "Flagship 3: EdTech Multi-Client Data Engineering Pipeline Platform",
+    title: "EdTech Multi-Client Data Engineering Pipeline Platform",
     domain: "EdTech",
     impact: "Dual PostgreSQL (47 views) & ClickHouse (16 tables) platform wiring 7 disconnected source systems (Canvas LMS API, Playwright/Selenium IMAP 2FA interception, RFID attendance, Google Drive) across ~2,200 students.",
     tags: ["70+ Python Pipelines", "7 Source Systems", "Playwright / Selenium", "PostgreSQL", "ClickHouse"],
@@ -57,17 +57,17 @@ const PROJECTS: Project[] = [
   },
   {
     id: "edtech_student_analytics_dashboards",
-    title: "Flagship 4: EdTech Unified Student Analytics & OMR / SWOT Automated PDF Reporting Suite",
+    title: "EdTech Unified Student Analytics & OMR / SWOT Automated PDF Reporting Suite",
     domain: "EdTech",
     impact: "50+ table star schema powering 17 Superset tabs, OpenCV/Tesseract computer vision OMR bubble evaluation (>97% accuracy), SWOT question paper generator (ReportLab), 5 student personas, and automated PDF scorecard delivery.",
     tags: ["OpenCV OMR Scoring", "SWOT PDF Generator", "5 Student Personas", "17 Superset Tabs", "Grafana"],
     repo: repoUrl("EdTech", 2),
   },
 
-  // ☀️ RENEWABLE ENERGY (SOLAR) FLAGSHIPS
+  // ☀️ RENEWABLE ENERGY (SOLAR)
   {
     id: "energy_iot_ingestion_pipeline",
-    title: "Flagship 5: Utility-Scale Solar IoT Data Ingestion & Real-Time Streaming Platform",
+    title: "Utility-Scale Solar IoT Data Ingestion & Real-Time Streaming Platform",
     domain: "Energy",
     impact: "Serverless IoT telemetry ingestion into Redshift Data API across 245 solar plants (cut Lambda invocations 864k → 8.6k/mo, -99% cost). Features a Kinesis real-time streaming lane with exactly-once shard watermarks.",
     tags: ["AWS Lambda (Serverless)", "Amazon Redshift Data API", "AWS Kinesis Streaming", "245 Solar Plants", "-99% Lambda Cost"],
@@ -75,7 +75,7 @@ const PROJECTS: Project[] = [
   },
   {
     id: "energy_solar_kpi_engine_pr_audit",
-    title: "Flagship 6: IEC 61724 Solar KPI Engine, EMS Dashboards & Operations Automation Suite",
+    title: "IEC 61724 Solar KPI Engine, EMS Dashboards & Operations Automation Suite",
     domain: "Energy",
     impact: "Audited Performance Ratio calculation bugs (6–17x error) to within ±2% of the IEC 61724 standard. Serves 13 Grafana dashboard surfaces with query-level RBAC (FastAPI) and automates daily generation reports & tariff PDF invoicing.",
     tags: ["IEC 61724 PR Audit (±2%)", "13 Grafana Surfaces", "FastAPI Query-Level RBAC", "Automated DGR & Invoicing"],
@@ -289,7 +289,7 @@ export default function FolioProjects() {
                     rel="noopener noreferrer"
                     className="fo-btn !py-2.5 !px-4 !text-[13px] inline-flex"
                   >
-                    <Github size={15} /> Browse the code on GitHub <ArrowRight size={14} />
+                    <Github size={15} /> Browse domain repository on GitHub <ArrowRight size={14} />
                   </a>
                 </div>
               </div>
@@ -334,6 +334,18 @@ export default function FolioProjects() {
                 <div>
                   <div className="fo-kicker mb-3">Tech</div>
                   <div className="flex flex-wrap gap-1.5">{projDetail.tags.map((t) => (<span key={t} className="fo-tag">{t}</span>))}</div>
+                </div>
+
+                {/* Direct link button with GitHub icon to project folder in domain GitHub repository */}
+                <div className="pt-3 border-t border-[var(--fo-border)]">
+                  <a
+                    href={projDetail.repo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="fo-btn !py-2.5 !px-4 !text-[13px] inline-flex items-center gap-2"
+                  >
+                    <Github size={16} /> View project code on GitHub <ArrowRight size={14} />
+                  </a>
                 </div>
               </div>
             </motion.div>
