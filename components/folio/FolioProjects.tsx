@@ -31,7 +31,7 @@ const PROJECTS: Project[] = [
   // 🛒 E-COMMERCE & RETAIL
   {
     id: "ecom_multi_marketplace_airflow_etl",
-    title: "E-commerce Multi-Client Data Engineering Platform",
+    title: "Multi-Client Data Engineering Platform",
     domain: "E-commerce",
     impact: "Apache Airflow 131-DAG production framework ingesting 31 source systems (Amazon SP-API, Vendor Central, Flipkart, Myntra, Ajio, Blinkit, Swiggy, Zepto) into a dual PostgreSQL & ClickHouse data warehouse.",
     tags: ["Apache Airflow (131 DAGs)", "31 Source Systems", "PostgreSQL", "ClickHouse", "AWS S3 Landing"],
@@ -39,7 +39,7 @@ const PROJECTS: Project[] = [
   },
   {
     id: "ecom_unified_sales_inventory_facts",
-    title: "E-commerce Unified Sales & DIVAS Inventory Analytics Suite",
+    title: "Unified Sales & DIVAS Inventory Analytics Suite",
     domain: "E-commerce",
     impact: "Unified 12 sales platforms into a 129-col all_sales master fact and 9 facility types into a 92-col DIVAS inventory decision engine. Recovered $1.05M in unattributed UAE revenue and powers 28 production BI dashboards.",
     tags: ["ClickHouse DWH (30+ Tables)", "$1.05M ASIN Recovery", "DIVAS Inventory", "Apache Superset", "Power BI"],
@@ -49,7 +49,7 @@ const PROJECTS: Project[] = [
   // 🎓 EDTECH & ACADEMIC ANALYTICS
   {
     id: "edtech_multi_source_etl_platform",
-    title: "EdTech Multi-Client Data Engineering Pipeline Platform",
+    title: "Multi-Client Data Engineering Pipeline Platform",
     domain: "EdTech",
     impact: "Dual PostgreSQL (47 views) & ClickHouse (16 tables) platform wiring 7 disconnected source systems (Canvas LMS API, Playwright/Selenium IMAP 2FA interception, RFID attendance, Google Drive) across ~2,200 students.",
     tags: ["70+ Python Pipelines", "7 Source Systems", "Playwright / Selenium", "PostgreSQL", "ClickHouse"],
@@ -57,7 +57,7 @@ const PROJECTS: Project[] = [
   },
   {
     id: "edtech_student_analytics_dashboards",
-    title: "EdTech Unified Student Analytics & OMR / SWOT Automated PDF Reporting Suite",
+    title: "Unified Student Analytics & OMR / SWOT Automated PDF Reporting Suite",
     domain: "EdTech",
     impact: "50+ table star schema powering 17 Superset tabs, OpenCV/Tesseract computer vision OMR bubble evaluation (>97% accuracy), SWOT question paper generator (ReportLab), 5 student personas, and automated PDF scorecard delivery.",
     tags: ["OpenCV OMR Scoring", "SWOT PDF Generator", "5 Student Personas", "17 Superset Tabs", "Grafana"],
@@ -67,7 +67,7 @@ const PROJECTS: Project[] = [
   // ☀️ RENEWABLE ENERGY (SOLAR)
   {
     id: "energy_iot_ingestion_pipeline",
-    title: "Utility-Scale Solar IoT Data Ingestion & Real-Time Streaming Platform",
+    title: "IoT Data Ingestion & Real-Time Streaming Platform",
     domain: "Energy",
     impact: "Serverless IoT telemetry ingestion into Redshift Data API across 245 solar plants (cut Lambda invocations 864k → 8.6k/mo, -99% cost). Features a Kinesis real-time streaming lane with exactly-once shard watermarks.",
     tags: ["AWS Lambda (Serverless)", "Amazon Redshift Data API", "AWS Kinesis Streaming", "245 Solar Plants", "-99% Lambda Cost"],
@@ -75,7 +75,7 @@ const PROJECTS: Project[] = [
   },
   {
     id: "energy_solar_kpi_engine_pr_audit",
-    title: "IEC 61724 Solar KPI Engine, EMS Dashboards & Operations Automation Suite",
+    title: "IEC 61724 KPI Engine, EMS Dashboards & Operations Automation Suite",
     domain: "Energy",
     impact: "Audited Performance Ratio calculation bugs (6–17x error) to within ±2% of the IEC 61724 standard. Serves 13 Grafana dashboard surfaces with query-level RBAC (FastAPI) and automates daily generation reports & tariff PDF invoicing.",
     tags: ["IEC 61724 PR Audit (±2%)", "13 Grafana Surfaces", "FastAPI Query-Level RBAC", "Automated DGR & Invoicing"],
