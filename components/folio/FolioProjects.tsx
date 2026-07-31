@@ -39,10 +39,10 @@ const PROJECTS: Project[] = [
   },
   {
     id: "ecom_unified_sales_inventory_facts",
-    title: "Unified Sales & DIVAS Inventory Analytics Suite",
+    title: "Unified Sales & INVMS Inventory Analytics Suite",
     domain: "E-commerce",
-    impact: "ClickHouse Single Source of Truth (SSOT) data engine harmonizing 12 platforms via date-level UNION, partner-to-child SKU mapping (ASIN/FSN/Style ID), and an hourly Airflow DAG executing a 15-day rolling DELETE+INSERT mutation window. Powers predictive ML modeling and 28 team KPI dashboards with $1.05M recovered in unattributed UAE revenue.",
-    tags: ["ClickHouse SSOT (129-col)", "Child SKU Mapping Engine", "15-Day DELETE+INSERT Window", "Predictive ML Dataset Layer", "$1.05M ASIN Recovery", "28 Team KPI Dashboards"],
+    impact: "ClickHouse Single Source of Truth (SSOT) data engine harmonizing 12 platforms into all_platform_sales (129-col) via date-level UNION, partner-to-child SKU mapping (ASIN/FSN/Style ID), and INVMS inventory (92-col). Features an hourly Airflow DAG with 15-day rolling DELETE+INSERT mutation window, powering predictive ML datasets and 28 team KPI dashboards with $1.05M recovered revenue.",
+    tags: ["ClickHouse SSOT (129-col)", "all_platform_sales Fact", "INVMS Inventory (92-col)", "15-Day DELETE+INSERT Window", "Predictive ML Dataset Layer", "$1.05M ASIN Recovery"],
     repo: repoUrl("E-commerce", 2),
   },
 
@@ -90,8 +90,8 @@ const DETAILS: Record<string, { blurb: string; results: string[] }> = {
     results: ["Python 3.11 Automation", "31 sources → 1 warehouse", "131 Airflow DAGs", "Selenium/Playwright 2FA", "80+ hrs/month saved"],
   },
   ecom_unified_sales_inventory_facts: {
-    blurb: "Engineered two canonical ClickHouse OLAP fact tables acting as the Single Source of Truth (SSOT) for all team analytics, predictive ML forecasting, and executive dashboarding. The all_sales pipeline harmonizes raw tables across 12 platforms via date-level UNIONs and maps partner SKUs (ASINs, FNSKUs, Style IDs) to internal master Child SKUs with revenue disaggregation. An hourly Airflow DAG ingests live 1-hour sales while executing a 15-day rolling DELETE+INSERT mutation window to capture order status updates and returns, backed by parameterised on-demand historical backfill DAGs. The DIVAS inventory fact consolidates 9 facility types with True-ADS calculation, powering PO replenishment and 28 production BI dashboards. Recovered $1.05M in unattributed UAE marketplace revenue by fixing an ASIN character-encoding bug (match rate 0% → 99.8%).",
-    results: ["ClickHouse SSOT (129/92 cols)", "Child SKU Mapping Engine", "15-Day DELETE+INSERT Window", "$1.05M Revenue Recovered", "28 Team KPI Dashboards"],
+    blurb: "Engineered two canonical ClickHouse OLAP fact tables acting as the Single Source of Truth (SSOT) for all team analytics, predictive ML forecasting, and executive dashboarding. The all_platform_sales pipeline harmonizes raw tables across 12 platforms via date-level UNIONs and maps partner SKUs (ASINs, FNSKUs, Style IDs) to internal master Child SKUs with revenue disaggregation. An hourly Airflow DAG ingests live 1-hour sales while executing a 15-day rolling DELETE+INSERT mutation window to capture order status updates and returns, backed by parameterised on-demand historical backfill DAGs. The INVMS inventory fact consolidates 9 facility types with True-ADS calculation, powering PO replenishment and 28 production BI dashboards. Recovered $1.05M in unattributed UAE marketplace revenue by fixing an ASIN character-encoding bug (match rate 0% → 99.8%).",
+    results: ["ClickHouse SSOT (129/92 cols)", "all_platform_sales & INVMS", "15-Day DELETE+INSERT Window", "$1.05M Revenue Recovered", "28 Team KPI Dashboards"],
   },
   edtech_multi_source_etl_platform: {
     blurb: "An ETL platform wiring 7 disconnected student-data systems into a dual PostgreSQL (47+ views) and ClickHouse (16 tables) warehouse via 70+ production pipelines. Extracts from an API-less SaaS tool via Playwright/Selenium headless scraping with IMAP 2FA OTP interception, Canvas LMS API, and RFID gate attendance.",
