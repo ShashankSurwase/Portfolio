@@ -216,13 +216,29 @@ export default function FolioProjects() {
                           </div>
                         </div>
                       </button>
-                      <button
-                        onClick={() => setProjDetail(p)}
-                        className="flex items-center justify-center gap-1.5 px-5 py-3 text-[13px] font-semibold transition-colors"
-                        style={{ borderTop: "1px solid var(--fo-border)", background: "var(--fo-bg-soft)", color: "var(--fo-accent)" }}
+                      <div
+                        className="flex items-center justify-between px-5 py-3"
+                        style={{ borderTop: "1px solid var(--fo-border)", background: "var(--fo-bg-soft)" }}
                       >
-                        View case study <ArrowRight size={13} />
-                      </button>
+                        <button
+                          onClick={() => setProjDetail(p)}
+                          className="flex items-center gap-1.5 text-[13px] font-semibold transition-colors hover:opacity-80"
+                          style={{ color: "var(--fo-accent)" }}
+                        >
+                          View case study <ArrowRight size={13} />
+                        </button>
+                        <a
+                          href={p.repo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="GitHub repository"
+                          className="p-1.5 rounded-lg transition-colors fo-btn-light !p-1.5 flex items-center justify-center"
+                          style={{ color: "var(--fo-ink)" }}
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <Github size={17} />
+                        </a>
+                      </div>
                     </div>
                   ))}
                 </div>
