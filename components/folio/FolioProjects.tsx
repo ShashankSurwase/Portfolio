@@ -41,8 +41,8 @@ const PROJECTS: Project[] = [
     id: "ecom_unified_sales_inventory_facts",
     title: "Unified Sales & DIVAS Inventory Analytics Suite",
     domain: "E-commerce",
-    impact: "Unified 12 sales platforms into a 129-col all_sales master fact and 9 facility types into a 92-col DIVAS inventory decision engine. Recovered $1.05M in unattributed UAE revenue and powers 28 production BI dashboards.",
-    tags: ["ClickHouse DWH (30+ Tables)", "$1.05M ASIN Recovery", "DIVAS Inventory", "Apache Superset", "Power BI"],
+    impact: "ClickHouse Single Source of Truth (SSOT) data platform engineering the canonical all_sales 129-col hourly sales fact (12 channels, timestamp granularity) and DIVAS 92-col daily inventory fact (9 facility types). Powers predictive ML modeling, RFM cohort analytics, and 28 team KPI dashboards with $1.05M recovered in unattributed UAE revenue.",
+    tags: ["ClickHouse SSOT (129-col)", "Timestamp Granularity", "DIVAS Inventory (92-col)", "Predictive Modeling Dataset", "$1.05M ASIN Recovery", "28 Team KPI Dashboards"],
     repo: repoUrl("E-commerce", 2),
   },
 
@@ -90,8 +90,8 @@ const DETAILS: Record<string, { blurb: string; results: string[] }> = {
     results: ["Python 3.11 Automation", "31 sources → 1 warehouse", "131 Airflow DAGs", "Selenium/Playwright 2FA", "80+ hrs/month saved"],
   },
   ecom_unified_sales_inventory_facts: {
-    blurb: "Two canonical ClickHouse fact tables — a 129-column hourly sales fact across 12 platforms and a 92-column daily inventory fact across 9 facility types — became the single source every dashboard reads. Unified $3.78M in revenue and recovered $1.05M in unattributed UAE marketplace revenue by root-causing an ASIN character-encoding bug (match rate 0% → 99.8%).",
-    results: ["$1.05M revenue recovered", "Match rate 0% → 99.8%", "12 sales platforms unified", "28 production BI dashboards"],
+    blurb: "Engineered two canonical ClickHouse OLAP fact tables acting as the Single Source of Truth (SSOT) for all team analytics, predictive ML forecasting, and executive dashboarding. all_sales merges 12 revenue channels into a 129-column hourly timestamp-granularity fact with pre-computed order_rank for predictive new-vs-repeat customer cohort modeling. inventory_view (DIVAS) merges 9 facility types into a 92-column daily fact with True-ADS (in-stock denominator) and 36 platform-ADS columns powering PO replenishment decisions and team-level KPI dashboards. Recovered $1.05M in unattributed UAE marketplace revenue by root-causing an ASIN character-encoding bug (match rate 0% → 99.8%).",
+    results: ["ClickHouse SSOT (129/92 cols)", "Timestamp Granularity", "Predictive ML Dataset Layer", "$1.05M Revenue Recovered", "28 Team KPI Dashboards"],
   },
   edtech_multi_source_etl_platform: {
     blurb: "An ETL platform wiring 7 disconnected student-data systems into a dual PostgreSQL (47+ views) and ClickHouse (16 tables) warehouse via 70+ production pipelines. Extracts from an API-less SaaS tool via Playwright/Selenium headless scraping with IMAP 2FA OTP interception, Canvas LMS API, and RFID gate attendance.",
