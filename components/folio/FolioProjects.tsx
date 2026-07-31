@@ -33,8 +33,8 @@ const PROJECTS: Project[] = [
     id: "ecom_multi_marketplace_airflow_etl",
     title: "Multi-Client Data Engineering Platform",
     domain: "E-commerce",
-    impact: "Apache Airflow 131-DAG production framework ingesting 31 source systems (Amazon SP-API, Vendor Central, Flipkart, Myntra, Ajio, Blinkit, Swiggy, Zepto) into a dual PostgreSQL & ClickHouse data warehouse.",
-    tags: ["Apache Airflow (131 DAGs)", "31 Source Systems", "PostgreSQL", "ClickHouse", "AWS S3 Landing"],
+    impact: "Python 3.11 & Apache Airflow 131-DAG production platform automating multi-marketplace browser scraping (Selenium/Playwright with IMAP 2FA interception) and API ingestion across 31 source systems into a dual PostgreSQL & ClickHouse data warehouse.",
+    tags: ["Python Automation", "Apache Airflow (131 DAGs)", "Selenium / Playwright", "PostgreSQL", "ClickHouse", "AWS S3"],
     repo: repoUrl("E-commerce", 1),
   },
   {
@@ -86,8 +86,8 @@ const PROJECTS: Project[] = [
 // Per-project detail shown when a project card is clicked (blurb + key results).
 const DETAILS: Record<string, { blurb: string; results: string[] }> = {
   ecom_multi_marketplace_airflow_etl: {
-    blurb: "A production Apache Airflow platform of 131 pipelines that ingests, validates and transforms data from 31 disconnected sales, logistics and marketing systems into a PostgreSQL & ClickHouse dual warehouse. Configuration-driven onboarding and schema-fingerprint validation made it cheap to extend and safe against silent vendor format changes.",
-    results: ["31 sources → 1 warehouse", "131 production Airflow DAGs", "Onboarding 2–5 days → 2–4 hrs", "80+ hrs/month saved"],
+    blurb: "A production Python 3.11 & Apache Airflow platform of 131 pipelines that ingests, validates, and transforms data from 31 disconnected sales, logistics, and marketing systems into a PostgreSQL & ClickHouse dual warehouse. Engineered headless Selenium and Playwright browser automation scripts with an automated Gmail/IMAP 2FA OTP interception engine to extract non-API seller portal reports without human intervention.",
+    results: ["Python 3.11 Automation", "31 sources → 1 warehouse", "131 Airflow DAGs", "Selenium/Playwright 2FA", "80+ hrs/month saved"],
   },
   ecom_unified_sales_inventory_facts: {
     blurb: "Two canonical ClickHouse fact tables — a 129-column hourly sales fact across 12 platforms and a 92-column daily inventory fact across 9 facility types — became the single source every dashboard reads. Unified $3.78M in revenue and recovered $1.05M in unattributed UAE marketplace revenue by root-causing an ASIN character-encoding bug (match rate 0% → 99.8%).",
