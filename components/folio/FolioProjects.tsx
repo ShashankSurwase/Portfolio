@@ -45,6 +45,14 @@ const PROJECTS: Project[] = [
     tags: ["ClickHouse SSOT (129-col)", "all_platform_sales Fact", "INVMS Inventory (92-col)", "15-Day DELETE+INSERT Window", "Predictive ML Dataset Layer", "$1.05M ASIN Recovery"],
     repo: repoUrl("E-commerce", 2),
   },
+  {
+    id: "ecom_clickhouse_data_warehouse",
+    title: "ClickHouse Data Warehouse & 27-Report Suite",
+    domain: "E-commerce",
+    impact: "Columnar ClickHouse warehouse built from scratch (30+ tables) unifying 5 source systems and 4 Reliance sub-channels (Ajio, Azorte, Tira Off/On). Engineered 3 write patterns (TRUNCATE+INSERT, append+OPTIMIZE, deleteInsert) powering 27 automated production reports.",
+    tags: ["ClickHouse (30+ Tables)", "3 Write Patterns", "4 Reliance Channels Unified", "27 Automated Reports", "₹5.79 Cr Revenue Tracked"],
+    repo: repoUrl("E-commerce", 3),
+  },
 
   // 🎓 EDTECH & ACADEMIC ANALYTICS
   {
@@ -92,6 +100,10 @@ const DETAILS: Record<string, { blurb: string; results: string[] }> = {
   ecom_unified_sales_inventory_facts: {
     blurb: "Engineered two canonical ClickHouse OLAP fact tables acting as the Single Source of Truth (SSOT) for all team analytics, predictive ML forecasting, and executive dashboarding. The all_platform_sales pipeline harmonizes raw tables across 12 platforms via date-level UNIONs and maps partner SKUs (ASINs, FNSKUs, Style IDs) to internal master Child SKUs with revenue disaggregation. An hourly Airflow DAG ingests live 1-hour sales while executing a 15-day rolling DELETE+INSERT mutation window to capture order status updates and returns, backed by parameterised on-demand historical backfill DAGs. The INVMS inventory fact consolidates 9 facility types with True-ADS calculation, powering PO replenishment and 28 production BI dashboards. Recovered $1.05M in unattributed UAE marketplace revenue by fixing an ASIN character-encoding bug (match rate 0% → 99.8%).",
     results: ["ClickHouse SSOT (129/92 cols)", "all_platform_sales & INVMS", "15-Day DELETE+INSERT Window", "$1.05M Revenue Recovered", "28 Team KPI Dashboards"],
+  },
+  ecom_clickhouse_data_warehouse: {
+    blurb: "Designed and built a ClickHouse OLAP data warehouse from scratch with 30+ tables for a K-Beauty brand, unifying Zoho ERP, Unicommerce WMS, Shopify, and 4 Reliance sub-channels (Ajio Online, Azorte Online, Tira Offline, Tira Online) into a single view for the first time. Engineered 3 explicit write patterns (TRUNCATE+INSERT for snapshots, putDataframe()+OPTIMIZE for appends, deleteInsert() for date-keyed operations) powering 27 automated production reports tracking ₹5.79 Cr revenue across 87,514 transactions.",
+    results: ["₹5.79 Cr revenue tracked", "4 Reliance channels unified", "3 ClickHouse write patterns", "27 automated reports"],
   },
   edtech_multi_source_etl_platform: {
     blurb: "An ETL platform wiring 7 disconnected student-data systems into a dual PostgreSQL (47+ views) and ClickHouse (16 tables) warehouse via 70+ production pipelines. Extracts from an API-less SaaS tool via Playwright/Selenium headless scraping with IMAP 2FA OTP interception, Canvas LMS API, and RFID gate attendance.",
