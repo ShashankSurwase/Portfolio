@@ -10,8 +10,8 @@ import { PROFILE } from "@/lib/profile";
 const ROLES = [
   {
     title: "Senior Data Analyst & Engineer",
-    period: "Jun 2025 – Present",
-    focus: "Solar EMS",
+    period: "Oct 2024 – Present",
+    focus: "Solar EMS & Multi-Client Data Platforms",
     points: [
       "Own the cloud Energy Management System end-to-end for a utility-scale solar producer — 245 plants monitored in real time to the IEC 61724 standard.",
       "Re-architected serverless IoT ingestion (SFTP → S3 → Lambda → Redshift): cut Lambda invocations 864k → 8.6k/month (−99%) and eliminated Redshift connection-limit failures.",
@@ -22,14 +22,14 @@ const ROLES = [
   },
   {
     title: "Senior Data Analyst",
-    period: "Oct 2024 – Jun 2025",
+    period: "Mid 2024 – Late 2024",
     focus: "Leadership & Cost Optimization",
     points: [
-      "Led and managed teams, accelerating project timelines by 30% using Jira.",
-      "Delivered analytics solutions and cost optimisation for edtech, e-commerce and manufacturing clients.",
-      "Contributed to front-end analytics tools, resolving database issues and delivering insights.",
-      "Optimised databases and Airflow DAGs, reducing costs by 20–30%.",
-      "Owned client relationships, ensuring clear communication and project alignment.",
+      "Led multi-client analytics delivery across Ecommerce (DaMENSCH, Limese, Triseas), EdTech, and Renewable Energy.",
+      "Engineered ASIN revenue reconciliation ($1.05M recovered) and ClickHouse DWH design (30+ tables).",
+      "Accelerated project timelines by 30% using Jira and Bitrix24 Agile project tracking.",
+      "Optimised databases and Airflow DAGs, reducing cloud costs by 20–30%.",
+      "Owned client relationships and technical discovery visits, ensuring clear communication and project alignment.",
     ],
   },
   {
@@ -37,34 +37,33 @@ const ROLES = [
     period: "Jun 2023 – Sep 2024",
     focus: "EdTech & Student Analytics",
     points: [
-      "Automated data pipelines from Google Drive for edtech clients, reducing manual effort by 70%.",
-      "Built ETL and dashboards for real-time student data visibility — 100% accuracy within 1 hour of an exam.",
+      "Built 70+ Python ETL pipelines across 7 EdTech source systems into PostgreSQL (47 views) and ClickHouse (16 tables).",
+      "Automated SQL OMR scoring engine for 5,000+ students, ReportLab SWOT PDF generator, and 3-source IoT attendance reconciliation.",
       "Implemented alerting systems and customised PDF reports, cutting operational time by 80%.",
-      "Developed a question bank that streamlined question creation and tagging.",
+      "Developed a question bank that streamlined question creation, Bloom's taxonomy, and topic tagging.",
       "Optimised marketing dashboards, saving 20% of budget through real-time reporting and alerts.",
     ],
   },
   {
     title: "Data Analyst I",
     period: "Jun 2022 – May 2023",
-    focus: "BI & Automation",
+    focus: "BI & Cloud Data Integration",
     points: [
-      "Built SQL ETL for sales, marketing and inventory reports — 80% less manual effort at 100% accuracy.",
-      "Developed real-time dashboards in Apache Superset, reducing team dependency.",
-      "Set up daily email and Slack reporting, supporting 40% business growth.",
-      "Automated GA4 clickstream from BigQuery into the warehouse, cutting costs by 50%.",
+      "Automated GA4 clickstream from BigQuery into PostgreSQL cloud data integration pipelines, cutting costs by 50%.",
+      "Built SQL ETL for sales, marketing and inventory reports — delivering 11 packaged daily MIS reports to executive teams.",
+      "Developed real-time dashboards in Apache Superset, reducing team dependency and supporting business growth.",
       "Contributed to front-end development and webhook integration for seamless analytics access.",
     ],
   },
   {
     title: "Data Analyst",
     period: "Jun 2021 – May 2022",
-    focus: "Foundation",
+    focus: "Foundational Automation & Scraping",
     points: [
-      "Extracted marketplace reports (Amazon, Flipkart, Myntra) via Selenium and APIs, reducing manual effort by 90%.",
+      "Engineered headless Selenium web scraping routines for 20+ non-API seller portals (Amazon, Flipkart, Myntra), reducing manual effort by 90%.",
       "Automated report generation with cron and Apache Airflow, ensuring real-time data sync at 100% accuracy.",
       "Hosted and monitored databases on Docker containerised cloud hosting, cutting deployment time to ~10 minutes.",
-      "Collaborated with the networking team on system setup, deepening backend architecture and network knowledge.",
+      "Maintained relational database schemas and automated Python data validation scripts.",
     ],
   },
 ];

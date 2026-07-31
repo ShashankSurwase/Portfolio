@@ -10,77 +10,76 @@ const LOGO_BASE = "/Portfolio/logos";
 const GROUPS: { icon: typeof Code2; title: string; items: Skill[] }[] = [
   {
     icon: Sparkles,
-    title: "Currently Learning",
+    title: "Currently Learning & Certification",
     items: [
-      { name: "Networking Fundamentals", level: "exploring", emoji: "🌐" },
-      { name: "Server Hosting & Deployment", level: "exploring", emoji: "🖥️" },
-      { name: "Proxy & Tunneling", level: "exploring", emoji: "🔀" },
+      { name: "AWS Solutions Architect", level: "intermediate", emoji: "☁️" },
+      { name: "GCP Data Engineer", level: "exploring", emoji: "🌐" },
+      { name: "Server Hosting & Proxying", level: "intermediate", emoji: "🖥️" },
       { name: "AI Prompt Engineering", level: "exploring", emoji: "🧠" },
-      { name: "AI-Assisted Web Dev", level: "exploring", emoji: "🤖" },
     ],
   },
   {
     icon: Code2,
-    title: "Languages & Libraries",
+    title: "Languages & Analytics",
     items: [
       { name: "Python", level: "proficient", logo: "python" },
-      { name: "SQL", level: "proficient", emoji: "🗄️" },
-      { name: "pandas", level: "proficient", logo: "pandas" },
-      { name: "SQLAlchemy", level: "proficient", logo: "sqlalchemy" },
+      { name: "SQL (1,400+ files)", level: "proficient", emoji: "🗄️" },
+      { name: "pandas / NumPy", level: "proficient", logo: "pandas" },
+      { name: "scikit-learn (RFM)", level: "proficient", emoji: "🤖" },
       { name: "R", level: "intermediate", logo: "r" },
       { name: "Bash / Shell", level: "intermediate", logo: "bash" },
     ],
   },
   {
     icon: Workflow,
-    title: "Orchestration & ETL",
+    title: "Orchestration, ETL & Ingestion",
     items: [
-      { name: "Apache Airflow", level: "proficient", logo: "airflow" },
-      { name: "Custom Python ETL", level: "proficient", emoji: "🔧" },
-      { name: "AWS Lambda", level: "proficient", emoji: "⚡" },
-      { name: "AWS EventBridge", level: "intermediate", emoji: "⏰" },
-      { name: "Selenium", level: "intermediate", logo: "selenium" },
-      { name: "Playwright", level: "intermediate", emoji: "🎭" },
+      { name: "Apache Airflow (131 DAGs)", level: "proficient", logo: "airflow" },
+      { name: "AWS Kinesis Streaming", level: "proficient", emoji: "⚡" },
+      { name: "AWS Lambda (Serverless)", level: "proficient", emoji: "⚡" },
+      { name: "Amazon SP-API & Vendor API", level: "proficient", emoji: "🛒" },
+      { name: "Selenium & Playwright (2FA)", level: "proficient", logo: "selenium" },
+      { name: "Canvas LMS & REST APIs", level: "proficient", emoji: "🎓" },
     ],
   },
   {
     icon: Database,
     title: "Databases & Warehouses",
     items: [
-      { name: "PostgreSQL", level: "proficient", logo: "postgresql" },
-      { name: "ClickHouse", level: "proficient", emoji: "🏎️" },
-      { name: "Amazon Redshift", level: "proficient", emoji: "🟥" },
-      { name: "S3 Data Lake", level: "proficient", emoji: "🪣" },
+      { name: "ClickHouse (30+ tables)", level: "proficient", emoji: "🏎️" },
+      { name: "Amazon Redshift (Data API)", level: "proficient", emoji: "🟥" },
+      { name: "PostgreSQL (47+ views)", level: "proficient", logo: "postgresql" },
+      { name: "AWS S3 Data Lake", level: "proficient", emoji: "🪣" },
       { name: "Google BigQuery", level: "intermediate", logo: "googlecloud" },
     ],
   },
   {
     icon: Cloud,
-    title: "Cloud & Infrastructure",
+    title: "Data Quality & IoT Standards",
     items: [
-      { name: "AWS S3", level: "proficient", emoji: "🪣" },
-      { name: "Redshift Data API", level: "proficient", emoji: "🔌" },
-      { name: "Docker", level: "intermediate", logo: "docker" },
-      { name: "CloudWatch", level: "intermediate", emoji: "👁️" },
-      { name: "IAM", level: "intermediate", emoji: "🔐" },
+      { name: "IEC 61724 Solar Standard", level: "proficient", emoji: "☀️" },
+      { name: "Schema-Fingerprint Hashing", level: "proficient", emoji: "🛡️" },
+      { name: "pangres.upsert()", level: "proficient", emoji: "🔄" },
+      { name: "Modbus IoT Registers", level: "intermediate", emoji: "📟" },
+      { name: "Docker Containerization", level: "intermediate", logo: "docker" },
     ],
   },
   {
     icon: BarChart3,
-    title: "BI, Dashboards & Analytics",
+    title: "BI, Dashboards & Reporting",
     items: [
-      { name: "Grafana", level: "proficient", logo: "grafana" },
-      { name: "Power BI", level: "proficient", emoji: "📊" },
-      { name: "Apache Superset", level: "intermediate", emoji: "📉" },
-      { name: "Redash", level: "intermediate", emoji: "📈" },
-      { name: "Google Analytics", level: "intermediate", emoji: "📶" },
+      { name: "Grafana (13 surfaces)", level: "proficient", logo: "grafana" },
+      { name: "Apache Superset", level: "proficient", emoji: "📉" },
+      { name: "Power BI (RLS)", level: "proficient", emoji: "📊" },
+      { name: "ReportLab SWOT PDFs", level: "proficient", emoji: "📄" },
+      { name: "FastAPI RBAC Backend", level: "intermediate", emoji: "🚀" },
     ],
   },
 ];
 
 // Shown as compact one-line strips below the grid, not as tag cards.
-const WORKFLOW = ["Git", "Jira", "Bitrix24", "Excel"];
-const STRENGTHS = ["Leadership", "Stakeholder Communication", "Problem-Solving", "Strategic Planning", "Adaptability"];
+const WORKFLOW = ["Git", "Jira", "Bitrix24", "Excel Mapping Config", "Slack Webhooks"];
+const STRENGTHS = ["End-to-End Ownership", "Data Quality Advocacy", "Stakeholder Communication", "Incident RCA", "Cross-Domain Adaptability"];
 
 const LEGEND: { level: Level; label: string }[] = [
   { level: "proficient", label: "Proficient" },
