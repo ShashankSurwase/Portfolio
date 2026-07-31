@@ -1,5 +1,5 @@
 "use client";
-import { ArrowRight, Mail, GraduationCap } from "lucide-react";
+import { ArrowRight, Mail, Download, GraduationCap } from "lucide-react";
 import { PROFILE } from "@/lib/profile";
 
 // Site is served under /Portfolio (see next.config.ts basePath); static assets need the prefix.
@@ -54,6 +54,14 @@ export default function FolioHero() {
           <div className="mt-7 flex flex-wrap items-center gap-3">
             <a href="#projects" className="fo-btn">
               See my work <ArrowRight size={15} />
+            </a>
+            <a
+              href={PROFILE.resumeHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="fo-btn-light"
+            >
+              <Download size={15} /> Download Resume
             </a>
             <a href="#contact" className="fo-btn-light">
               <Mail size={15} /> Contact me
