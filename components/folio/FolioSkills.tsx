@@ -1,145 +1,213 @@
 "use client";
-import { Code2, Workflow, Database, Cloud, BarChart3 } from "lucide-react";
+import React from "react";
+import {
+  Code2,
+  Database,
+  Layers,
+  BarChart3,
+  Cpu,
+  ShoppingBag,
+  Users,
+} from "lucide-react";
 
-type Level = "proficient" | "intermediate" | "exploring" | "familiar";
-// `logo` = filename in /public/logos (real brand SVG); `emoji` = fallback when no logo exists.
-type Skill = { name: string; level: Level; logo?: string; emoji?: string };
+type Skill = { name: string; logo?: string; emoji?: string };
 
 const LOGO_BASE = "/Portfolio/logos";
 
-const GROUPS: { icon: typeof Code2; title: string; items: Skill[] }[] = [
+interface SkillGroup {
+  icon: React.ComponentType<{ size?: number; className?: string }>;
+  title: string;
+  items: Skill[];
+}
+
+const GROUPS: SkillGroup[] = [
   {
     icon: Code2,
-    title: "Languages & Analytics",
+    title: "Programming & Automation",
     items: [
-      { name: "Python", level: "proficient", logo: "python" },
-      { name: "SQL (1,400+ files)", level: "proficient", emoji: "🗄️" },
-      { name: "pandas / NumPy", level: "proficient", logo: "pandas" },
-      { name: "scikit-learn (RFM)", level: "proficient", emoji: "🤖" },
-      { name: "R", level: "intermediate", logo: "r" },
-      { name: "Bash / Shell", level: "intermediate", logo: "bash" },
-    ],
-  },
-  {
-    icon: Workflow,
-    title: "Orchestration, ETL & Ingestion",
-    items: [
-      { name: "Apache Airflow (131 DAGs)", level: "proficient", logo: "airflow" },
-      { name: "AWS Kinesis Streaming", level: "proficient", emoji: "⚡" },
-      { name: "AWS Lambda (Serverless)", level: "proficient", emoji: "⚡" },
-      { name: "Amazon SP-API & Vendor API", level: "proficient", emoji: "🛒" },
-      { name: "Selenium & Playwright (2FA)", level: "proficient", logo: "selenium" },
-      { name: "Canvas LMS & REST APIs", level: "proficient", emoji: "🎓" },
+      { name: "Python", logo: "python" },
+      { name: "SQL", emoji: "🗄️" },
+      { name: "Bash / Shell", logo: "bash" },
+      { name: "ETL Pipelines", emoji: "🔄" },
+      { name: "Selenium", logo: "selenium" },
+      { name: "Playwright", emoji: "🎭" },
+      { name: "REST APIs", emoji: "🔌" },
+      { name: "pandas / NumPy", logo: "pandas" },
     ],
   },
   {
     icon: Database,
-    title: "Databases & Warehouses",
+    title: "Data Engineering & Cloud",
     items: [
-      { name: "ClickHouse (30+ tables)", level: "proficient", emoji: "🏎️" },
-      { name: "Amazon Redshift (Data API)", level: "proficient", emoji: "🟥" },
-      { name: "PostgreSQL (47+ views)", level: "proficient", logo: "postgresql" },
-      { name: "AWS S3 Data Lake", level: "proficient", emoji: "🪣" },
-      { name: "Google BigQuery", level: "intermediate", logo: "googlecloud" },
+      { name: "Apache Airflow", logo: "airflow" },
+      { name: "AWS", emoji: "☁️" },
+      { name: "Amazon Redshift", emoji: "🟥" },
+      { name: "AWS S3", emoji: "🪣" },
+      { name: "AWS Lambda", emoji: "⚡" },
+      { name: "ClickHouse", emoji: "🏎️" },
+      { name: "PostgreSQL", logo: "postgresql" },
+      { name: "Data Warehousing", emoji: "🏢" },
+      { name: "Database Migration", emoji: "🚚" },
     ],
   },
   {
-    icon: Cloud,
-    title: "Data Quality & IoT Standards",
+    icon: Layers,
+    title: "Data Architecture & Governance",
     items: [
-      { name: "IEC 61724 Solar Standard", level: "proficient", emoji: "☀️" },
-      { name: "Schema-Fingerprint Hashing", level: "proficient", emoji: "🛡️" },
-      { name: "pangres.upsert()", level: "proficient", emoji: "🔄" },
-      { name: "Modbus IoT Registers", level: "intermediate", emoji: "📟" },
-      { name: "Docker Containerization", level: "intermediate", logo: "docker" },
+      { name: "Star Schema", emoji: "⭐" },
+      { name: "Fact & Dimension", emoji: "📐" },
+      { name: "Data Modeling", emoji: "🏗️" },
+      { name: "Data Governance", emoji: "🛡️" },
+      { name: "Data Monitoring & SLA", emoji: "📡" },
+      { name: "Database Management", emoji: "🗃️" },
+      { name: "Database Optimization", emoji: "⚡" },
+      { name: "Incremental ETL", emoji: "⏳" },
+      { name: "Data Validation & Reconciliation", emoji: "✅" },
+      { name: "Advanced SQL", emoji: "🔍" },
     ],
   },
   {
     icon: BarChart3,
-    title: "BI, Dashboards & Reporting",
+    title: "Analytics & BI",
     items: [
-      { name: "Grafana (13 surfaces)", level: "proficient", logo: "grafana" },
-      { name: "Apache Superset", level: "proficient", emoji: "📉" },
-      { name: "Power BI (RLS)", level: "proficient", emoji: "📊" },
-      { name: "ReportLab SWOT PDFs", level: "proficient", emoji: "📄" },
-      { name: "FastAPI RBAC Backend", level: "intermediate", emoji: "🚀" },
+      { name: "Power BI", emoji: "📊" },
+      { name: "Tableau", emoji: "📈" },
+      { name: "Apache Superset", emoji: "📉" },
+      { name: "Grafana", logo: "grafana" },
+      { name: "Metabase", emoji: "🧭" },
+      { name: "Redash", emoji: "📋" },
+      { name: "Google BigQuery", logo: "googlecloud" },
+      { name: "Google Analytics 4", emoji: "📊" },
+    ],
+  },
+  {
+    icon: Cpu,
+    title: "AI & Developer Tools",
+    items: [
+      { name: "Gemini CLI", emoji: "✨" },
+      { name: "Claude Code", emoji: "🤖" },
+      { name: "DeepSeek", emoji: "🧠" },
+      { name: "Prompt Engineering", emoji: "💡" },
+      { name: "Git", logo: "github" },
+      { name: "Docker", logo: "docker" },
+      { name: "Linux CLI", logo: "bash" },
+    ],
+  },
+  {
+    icon: ShoppingBag,
+    title: "Marketplaces & Ingestion Portals",
+    items: [
+      { name: "Amazon SP-API", emoji: "🛒" },
+      { name: "Amazon Vendor Central", emoji: "📦" },
+      { name: "Flipkart Seller API", emoji: "🛍️" },
+      { name: "Myntra", emoji: "👗" },
+      { name: "Ajio", emoji: "🏷️" },
+      { name: "Shopify API", emoji: "🟢" },
+      { name: "Unicommerce WMS", emoji: "📦" },
+      { name: "Blinkit / Swiggy / Zepto", emoji: "⚡" },
+      { name: "Canvas LMS API", emoji: "🎓" },
+      { name: "SFTP / IoT Gateways", emoji: "📟" },
+    ],
+  },
+  {
+    icon: Users,
+    title: "Workflow & Engineering Leadership",
+    items: [
+      { name: "Jira", emoji: "🎯" },
+      { name: "Bitrix24", emoji: "📋" },
+      { name: "Advanced Excel", emoji: "📑" },
+      { name: "Agile / Scrum", emoji: "🔄" },
+      { name: "Client Consulting", emoji: "🤝" },
+      { name: "Technical Mentorship", emoji: "👥" },
+      { name: "Engineering Leadership", emoji: "🚀" },
     ],
   },
 ];
 
-// Shown as compact one-line strips below the grid, not as tag cards.
-const WORKFLOW = ["Git", "Jira", "Bitrix24", "Excel Mapping Config", "Slack Webhooks"];
-const STRENGTHS = ["End-to-End Ownership", "Data Quality Advocacy", "Stakeholder Communication", "Incident RCA", "Cross-Domain Adaptability"];
-
-const LEGEND: { level: Level; label: string }[] = [
-  { level: "proficient", label: "Proficient" },
-  { level: "intermediate", label: "Intermediate" },
-  { level: "exploring", label: "Exploring" },
-];
-
 function SkillTag({ s }: { s: Skill }) {
   return (
-    <span className="fo-lvl" data-level={s.level}>
+    <span
+      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-[13px] sm:text-[13.5px] font-medium transition-all duration-200 hover:border-[var(--fo-accent)] hover:translate-y-[-1px] select-none"
+      style={{
+        background: "var(--fo-bg-soft)",
+        border: "1px solid var(--fo-border)",
+        color: "var(--fo-ink)",
+      }}
+    >
       {s.logo ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={`${LOGO_BASE}/${s.logo}.svg`} alt="" width={17} height={17} style={{ width: 17, height: 17, objectFit: "contain" }} />
+        <img
+          src={`${LOGO_BASE}/${s.logo}.svg`}
+          alt=""
+          width={16}
+          height={16}
+          style={{ width: 16, height: 16, objectFit: "contain" }}
+        />
       ) : (
-        <span aria-hidden="true">{s.emoji}</span>
+        <span aria-hidden="true" className="text-[14px] leading-none">
+          {s.emoji}
+        </span>
       )}
-      {s.name}
+      <span>{s.name}</span>
     </span>
   );
 }
 
 export default function FolioSkills() {
   return (
-    <section id="skills" className="py-16 sm:py-20" style={{ background: "var(--fo-bg-soft)", borderTop: "1px solid var(--fo-border)", borderBottom: "1px solid var(--fo-border)" }}>
+    <section
+      id="skills"
+      className="py-16 sm:py-20"
+      style={{
+        background: "var(--fo-bg-soft)",
+        borderTop: "1px solid var(--fo-border)",
+        borderBottom: "1px solid var(--fo-border)",
+      }}
+    >
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div className="text-center">
-          <h2 className="text-[32px] sm:text-[40px] font-bold">Skills</h2>
+          <h2 className="text-[32px] sm:text-[40px] font-bold">Skills &amp; Capabilities</h2>
           <div className="fo-underline fo-underline-center" />
-          <p className="mt-4 text-[16px] fo-muted max-w-2xl mx-auto">
-            Colour-coded by how deeply I work with each — tools I run in production every day down to ones I&apos;m still exploring.
+          <p className="mt-4 text-[15.5px] sm:text-[16px] fo-muted max-w-2xl mx-auto">
+            Core technologies, data architectures, and platforms I use to design, build, and operate production data systems.
           </p>
         </div>
 
-        {/* Legend */}
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-          {LEGEND.map((l) => (
-            <span key={l.level} className="inline-flex items-center gap-2 text-[13.5px] fo-muted">
-              <span className={`fo-legend-dot ${l.level}`} />
-              {l.label}
-            </span>
-          ))}
-        </div>
-
-        {/* Category cards */}
-        <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Category cards grid */}
+        <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {GROUPS.map((g) => (
-            <div key={g.title} className="fo-card p-5">
-              <div className="flex items-center gap-2.5">
-                <span className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: "var(--fo-accent-soft)", color: "var(--fo-accent)" }}>
-                  <g.icon size={18} />
-                </span>
-                <h3 className="text-[15.5px] font-bold fo-ink leading-tight">{g.title}</h3>
-              </div>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {g.items.map((s) => (
-                  <SkillTag key={s.name} s={s} />
-                ))}
+            <div
+              key={g.title}
+              className="fo-card p-5 sm:p-6 rounded-2xl flex flex-col justify-between"
+              style={{
+                background: "var(--fo-card)",
+                border: "1px solid var(--fo-border)",
+              }}
+            >
+              <div>
+                <div className="flex items-center gap-2.5 mb-4">
+                  <span
+                    className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                    style={{
+                      background: "var(--fo-accent-soft)",
+                      color: "var(--fo-accent)",
+                    }}
+                  >
+                    <g.icon size={18} />
+                  </span>
+                  <h3 className="text-[16px] font-bold fo-ink leading-tight">
+                    {g.title}
+                  </h3>
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  {g.items.map((s) => (
+                    <SkillTag key={s.name} s={s} />
+                  ))}
+                </div>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Compact strips — kept out of the tag grid to reduce noise */}
-        <div className="mt-8 space-y-2.5 text-center">
-          <p className="text-[14.5px] fo-muted">
-            <span className="font-semibold fo-ink">Workflow &amp; Tools:</span> {WORKFLOW.join(" · ")}
-          </p>
-          <p className="text-[14.5px] fo-muted">
-            <span className="font-semibold fo-ink">Strengths:</span> {STRENGTHS.join(" · ")}
-          </p>
         </div>
       </div>
     </section>
