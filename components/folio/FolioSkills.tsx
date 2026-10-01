@@ -1,5 +1,5 @@
 "use client";
-import { Code2, Workflow, Database, Cloud, BarChart3, Sparkles } from "lucide-react";
+import { Code2, Workflow, Database, Cloud, BarChart3 } from "lucide-react";
 
 type Level = "proficient" | "intermediate" | "exploring" | "familiar";
 // `logo` = filename in /public/logos (real brand SVG); `emoji` = fallback when no logo exists.
@@ -8,16 +8,6 @@ type Skill = { name: string; level: Level; logo?: string; emoji?: string };
 const LOGO_BASE = "/Portfolio/logos";
 
 const GROUPS: { icon: typeof Code2; title: string; items: Skill[] }[] = [
-  {
-    icon: Sparkles,
-    title: "Currently Learning & Certification",
-    items: [
-      { name: "AWS Solutions Architect", level: "intermediate", emoji: "☁️" },
-      { name: "GCP Data Engineer", level: "exploring", emoji: "🌐" },
-      { name: "Server Hosting & Proxying", level: "intermediate", emoji: "🖥️" },
-      { name: "AI Prompt Engineering", level: "exploring", emoji: "🧠" },
-    ],
-  },
   {
     icon: Code2,
     title: "Languages & Analytics",
