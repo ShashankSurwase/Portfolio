@@ -93,7 +93,7 @@ export default function FolioHero() {
         <div className="w-full max-w-[380px] mx-auto lg:mx-0 lg:ml-auto">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={`${BASE}/profile.jpg`}
+            src={`${BASE}/profile.png`}
             alt={`Portrait of ${PROFILE.name}`}
             width={420}
             height={520}
