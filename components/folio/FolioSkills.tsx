@@ -26,14 +26,11 @@ const GROUP_PROGRAMMING: SkillGroup = {
   items: [
     { name: "Python", logo: "python" },
     { name: "SQL", logo: "database" },
-    { name: "R", logo: "r" },
-    { name: "scikit-learn", logo: "scikitlearn" },
-    { name: "Bash / Shell", logo: "bash" },
-    { name: "pandas / NumPy", logo: "pandas" },
+    { name: "FastAPI", emoji: "🚀" },
+    { name: "REST APIs", emoji: "🔌" },
     { name: "ETL Pipelines", emoji: "🔄" },
     { name: "Selenium", logo: "selenium" },
     { name: "Playwright", emoji: "🎭" },
-    { name: "REST APIs", emoji: "🔌" },
     { name: "HTML / Jinja2", emoji: "📄" },
   ],
 };
@@ -67,7 +64,7 @@ const GROUP_ANALYTICS: SkillGroup = {
     { name: "Grafana", logo: "grafana" },
     { name: "Metabase", emoji: "🧭" },
     { name: "Redash", emoji: "📋" },
-    { name: "FastAPI Analytics Backend", emoji: "🚀" },
+    { name: "MIS in Reporting", emoji: "📑" },
     { name: "Google BigQuery", logo: "googlecloud" },
     { name: "Google Analytics 4", emoji: "📊" },
   ],
@@ -88,7 +85,6 @@ const GROUP_ARCHITECTURE: SkillGroup = {
     { name: "Database Optimization", emoji: "⚡" },
     { name: "Incremental ETL", emoji: "⏳" },
     { name: "Data Validation & Reconciliation", emoji: "✅" },
-    { name: "Advanced SQL", emoji: "🔍" },
   ],
 };
 
