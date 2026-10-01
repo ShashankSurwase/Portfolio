@@ -353,7 +353,24 @@ body {
   box-shadow: var(--fo-shadow-lg); object-fit: cover;
 }
 
+/* ── Infinite rolling marquee (right to left) ────────────────── */
+@keyframes foMarqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.folio .fo-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 1.25rem;
+  animation: foMarqueeScroll 40s linear infinite;
+  will-change: transform;
+}
+.folio .fo-marquee-track:hover {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .folio .fo-marquee-track { animation: none !important; }
   .folio .fo-fade-up { animation: none !important; }
 }
+

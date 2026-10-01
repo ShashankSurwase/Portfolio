@@ -5,6 +5,7 @@ import FolioStats from "@/components/folio/FolioStats";
 import FolioJourney from "@/components/folio/FolioJourney";
 import FolioProjects from "@/components/folio/FolioProjects";
 import FolioSkills from "@/components/folio/FolioSkills";
+import FolioCertifications from "@/components/folio/FolioCertifications";
 import FolioContact from "@/components/folio/FolioContact";
 import FolioFooter from "@/components/folio/FolioFooter";
 
@@ -19,6 +20,7 @@ export default function Home() {
         <FolioJourney />
         <FolioProjects />
         <FolioSkills />
+        <FolioCertifications />
         <FolioContact />
       </main>
       <FolioFooter />
