@@ -2,7 +2,7 @@
 import { MapPin, Layers, Boxes, Briefcase, Sun } from "lucide-react";
 
 const FACTS = [
-  { icon: Briefcase, label: "Role", value: "Senior Data & Analytics Engineer" },
+  { icon: Briefcase, label: "Role", value: "Data & Analytics Engineer" },
   { icon: Sun, label: "Focus now", value: "Solar EMS" },
   { icon: Boxes, label: "Industries", value: "E-commerce · EdTech · Renewable Energy" },
   { icon: Layers, label: "Core stack", value: "Python · SQL · Airflow · AWS · Redshift" },

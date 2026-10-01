@@ -2,7 +2,7 @@
 // Values verified against the sent resume PDFs (2026).
 export const PROFILE = {
   name: "Shashank Surwase",
-  title: "Senior Data Analyst & Engineer | Analytics Engineer | Data Engineer",
+  title: "Data Engineer | Analytics Engineer | Data Analyst",
   company: "Delphi Analytics",
   companyLocation: "Pune / Mumbai, India",
   yearsLine: "5+ years building production data engineering & analytics platforms at Delphi Analytics.",

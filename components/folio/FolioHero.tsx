@@ -42,14 +42,41 @@ export default function FolioHero() {
             {PROFILE.title}
           </p>
 
-          <p className="mt-6 text-[17px] leading-[1.75] max-w-2xl">
-            I build complete data systems — pipelines, warehouses, dashboards,
-            and automation — that businesses run on every day. Over 5+ years, as
-            the data engineer inside a data-analytics consultancy, I&apos;ve built the
-            full stack for <strong className="fo-ink">6 client companies across 3 industries</strong>,
-            recovered <strong className="fo-ink">$1.05M in lost revenue</strong>, and eliminated{" "}
-            <strong className="fo-ink">120+ hours of manual work every month</strong>.
-          </p>
+          <div className="mt-6 text-[16px] sm:text-[17px] leading-[1.7] max-w-2xl space-y-4">
+            <p>
+              I engineer complete data systems — pipelines, warehouses, dashboards, and automation — that businesses run on every day.
+            </p>
+
+            <div>
+              <p>
+                Over 5+ years as the lead data engineer inside a consultancy, I&apos;ve architected the full stack for <strong className="fo-ink">6 client companies across 3 industries</strong>:
+              </p>
+              <ul className="mt-2.5 space-y-1.5 pl-1 text-[15px] sm:text-[15.5px]">
+                <li className="flex items-start gap-2">
+                  <span className="text-[var(--fo-accent)] font-bold select-none">•</span>
+                  <span>
+                    <strong className="fo-ink">Multi-client ecommerce platform</strong> → 250+ daily tables, <strong className="fo-ink">$1.05M revenue recovered</strong>
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[var(--fo-accent)] font-bold select-none">•</span>
+                  <span>
+                    <strong className="fo-ink">EdTech analytics suite</strong> → 5,000+ students, <strong className="fo-ink">grading cut from 7 days to 1 hour</strong>
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[var(--fo-accent)] font-bold select-none">•</span>
+                  <span>
+                    <strong className="fo-ink">Solar IoT platform</strong> → 85 plants on Redshift Serverless, <strong className="fo-ink">99% cost reduction, ≤10-min freshness</strong>
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            <p className="text-[14.5px] sm:text-[15px] pt-0.5 leading-[1.6]">
+              I own the lifecycle end-to-end: <span className="fo-ink font-medium">on-site client discovery → architecture → Airflow/ClickHouse/Redshift engineering → BI deployment → SLA monitoring → team onboarding</span>.
+            </p>
+          </div>
 
           <div className="mt-7 flex flex-wrap items-center gap-3">
             <a href="#projects" className="fo-btn">
