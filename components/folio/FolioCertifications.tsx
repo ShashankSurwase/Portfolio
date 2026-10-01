@@ -1,218 +1,268 @@
 "use client";
-import { Sparkles, Award, Lock, ArrowUpRight, Cpu, Cloud, Database, Layers, CheckCircle2 } from "lucide-react";
+import React from "react";
+import { Sparkles } from "lucide-react";
 
-interface CertItem {
+interface CourseItem {
   name: string;
   issuer: string;
-  status: string;
-  badgeStyle: {
-    bg: string;
-    border: string;
-    text: string;
-    dot: string;
-  };
   category: string;
-  summary: string;
+  keyPoints: string[];
   skills: string[];
-  emoji: string;
+  iconSvg: React.ReactNode;
 }
 
-const CERTS: CertItem[] = [
+function AwsIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none">
+      <path
+        d="M6.5 15.5c3.2 2.2 7.8 2.2 11 0"
+        stroke="#FF9900"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M17.5 15.5l-1.2-1.8M17.5 15.5l-2.1.4"
+        stroke="#FF9900"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M6.2 11.2c-.4-.7-.8-1.9-.8-2.7 0-1.8 1.1-2.9 2.7-2.9 1.4 0 2.4.9 2.7 2.1l-1.2.4c-.2-.7-.7-1.2-1.5-1.2-.9 0-1.5.7-1.5 1.7 0 .5.2 1.3.5 1.8l-1.4.8zm6.3-5.4h1.4l1.6 6h-1.3l-.3-1.4h-1.6l-.3 1.4h-1.2l1.7-6zm1.1 3.5l-.6-2.5-.6 2.5h1.2z"
+        fill="#FF9900"
+      />
+    </svg>
+  );
+}
+
+function GoogleIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-5 h-5">
+      <path
+        fill="#4285F4"
+        d="M23.7 12.3c0-.8-.1-1.5-.2-2.2H12v4.5h6.6c-.3 1.5-1.1 2.8-2.4 3.7v3.1h3.9c2.3-2.1 3.6-5.2 3.6-9.1z"
+      />
+      <path
+        fill="#34A853"
+        d="M12 24c3.2 0 6-1.1 7.9-2.9l-3.9-3.1c-1.1.7-2.5 1.2-4 1.2-3.1 0-5.8-2.1-6.7-4.9H1.3v3.1C3.3 21.4 7.4 24 12 24z"
+      />
+      <path
+        fill="#FBBC05"
+        d="M5.3 14.3c-.3-.7-.4-1.5-.4-2.3s.1-1.6.4-2.3V6.6H1.3C.5 8.2 0 10 0 12s.5 3.8 1.3 5.4l4-3.1z"
+      />
+      <path
+        fill="#EA4335"
+        d="M12 4.8c1.8 0 3.4.6 4.6 1.8l3.4-3.4C18 1.2 15.2 0 12 0 7.4 0 3.3 2.6 1.3 6.6l4 3.1c.9-2.8 3.6-4.9 6.7-4.9z"
+      />
+    </svg>
+  );
+}
+
+function DbtIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-5 h-5">
+      <path
+        fill="#FF694B"
+        d="M12 1.5L2.5 7v10L12 22.5l9.5-5.5V7L12 1.5zm0 3.1l6.7 3.9v7.8L12 20.2l-6.7-3.9V8.5L12 4.6zm-1.8 3.8v3.2l2.8 1.6v3.2l-5.6-3.2v-3.2l2.8-1.6zm3.6 0l2.8 1.6v3.2l-2.8-1.6V8.4z"
+      />
+    </svg>
+  );
+}
+
+function LinuxIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none">
+      <rect x="2" y="3" width="20" height="18" rx="4" fill="#18181b" stroke="#3f3f46" strokeWidth="1.5" />
+      <path d="M6 8l4 4-4 4" stroke="#e4e4e7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M12 16h6" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function LlmIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none">
+      <circle cx="12" cy="12" r="9" fill="rgba(16, 185, 129, 0.12)" stroke="#10b981" strokeWidth="1.6" />
+      <path
+        d="M8 12h8M12 8v8M9 9l6 6M15 9l-6 6"
+        stroke="#10b981"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      <circle cx="12" cy="12" r="2.5" fill="#10b981" />
+    </svg>
+  );
+}
+
+function AgentIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none">
+      <circle cx="12" cy="12" r="9" fill="rgba(168, 85, 247, 0.12)" stroke="#a855f7" strokeWidth="1.6" />
+      <rect x="7" y="8" width="10" height="8" rx="2" stroke="#a855f7" strokeWidth="1.6" />
+      <circle cx="10" cy="12" r="1" fill="#a855f7" />
+      <circle cx="14" cy="12" r="1" fill="#a855f7" />
+      <path d="M12 5v3M9 19l1-3M15 19l-1-3" stroke="#a855f7" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+const COURSES: CourseItem[] = [
   {
-    name: "AWS Certified Data Engineer – Associate",
+    name: "AWS Data Engineering Training (Digital)",
     issuer: "Amazon Web Services",
-    status: "Unlocking Soon 🔓",
-    badgeStyle: {
-      bg: "rgba(245, 158, 11, 0.12)",
-      border: "rgba(245, 158, 11, 0.35)",
-      text: "#f59e0b",
-      dot: "#f59e0b",
-    },
     category: "Cloud Data Engineering",
-    summary: "Hands-on data ingestion, Redshift Serverless pipelines, Glue ETL & lake architecture.",
-    skills: ["AWS Glue", "Redshift", "Athena", "Kinesis", "S3 Lake"],
-    emoji: "☁️",
+    iconSvg: <AwsIcon />,
+    keyPoints: [
+      "Serverless ETL pipelines with AWS Glue & automated Glue Data Catalog.",
+      "Warehouse design & high-speed columnar analytics on Amazon Redshift Serverless.",
+      "Real-time event streaming architectures with Amazon Kinesis & Lambda.",
+      "S3 Lakehouse governance, partition pruning & Lake Formation policies.",
+    ],
+    skills: ["AWS Glue", "Redshift Serverless", "Kinesis", "S3 Lakehouse", "IAM"],
   },
   {
-    name: "Databricks Certified Data Engineer Associate",
-    issuer: "Databricks",
-    status: "In Progress ⚡",
-    badgeStyle: {
-      bg: "rgba(239, 68, 68, 0.12)",
-      border: "rgba(239, 68, 68, 0.35)",
-      text: "#ef4444",
-      dot: "#ef4444",
-    },
-    category: "Lakehouse & Spark",
-    summary: "Delta Lake ingestion, PySpark transformations, Medallion Architecture, and production pipelines.",
-    skills: ["PySpark", "Delta Lake", "Lakehouse", "Structured Streaming"],
-    emoji: "⚡",
+    name: "Google Data Analytics Certificate (Audit)",
+    issuer: "Google / Coursera",
+    category: "Analytics & BI",
+    iconSvg: <GoogleIcon />,
+    keyPoints: [
+      "Structured analysis lifecycle: Ask, Prepare, Process, Analyze, Share, and Act.",
+      "Complex SQL transformations, data hygiene & integrity in Google BigQuery.",
+      "Executive visual storytelling & dashboard architecture with Tableau.",
+      "Reproducible statistical programming in R for automated data preparation.",
+    ],
+    skills: ["Google BigQuery", "SQL Cleaning", "Tableau", "R Programming", "EDA"],
   },
   {
-    name: "dbt Certified Developer",
+    name: "dbt Fundamentals",
     issuer: "dbt Labs",
-    status: "Unlocking Soon 🔓",
-    badgeStyle: {
-      bg: "rgba(249, 115, 22, 0.12)",
-      border: "rgba(249, 115, 22, 0.35)",
-      text: "#f97316",
-      dot: "#f97316",
-    },
-    category: "Modern Analytics Stack",
-    summary: "Modular SQL transformations, Jinja templating, incremental models, semantic layer & data testing.",
-    skills: ["dbt Core", "Data Modeling", "CI/CD Tests", "Semantic Layer"],
-    emoji: "🛠️",
+    category: "Analytics Engineering",
+    iconSvg: <DbtIcon />,
+    keyPoints: [
+      "Modular SQL transformations & DAG-based analytical dependency modeling.",
+      "Jinja templating, custom macro libraries & incremental table loads.",
+      "Automated schema tests, generic assertions & freshness SLAs.",
+      "Auto-generated interactive lineage graphs & comprehensive documentation.",
+    ],
+    skills: ["dbt Core", "Jinja Macros", "Data Modeling", "Schema Testing", "Lineage DAGs"],
   },
   {
-    name: "Snowflake SnowPro Core Certification",
-    issuer: "Snowflake",
-    status: "Targeting 2026 🎯",
-    badgeStyle: {
-      bg: "rgba(14, 165, 233, 0.12)",
-      border: "rgba(14, 165, 233, 0.35)",
-      text: "#0ea5e9",
-      dot: "#0ea5e9",
-    },
-    category: "Cloud Data Warehousing",
-    summary: "Multi-cluster warehouses, Snowpipe continuous loading, Time Travel, and zero-copy cloning.",
-    skills: ["Snowflake", "Snowpipe", "Time Travel", "Zero-Copy"],
-    emoji: "❄️",
+    name: "Introduction to Linux (LFS101x)",
+    issuer: "The Linux Foundation",
+    category: "Systems & Automation",
+    iconSvg: <LinuxIcon />,
+    keyPoints: [
+      "Core Linux OS architecture, file system hierarchy & terminal administration.",
+      "Bash scripting automation, stream editing (grep, awk, sed) & I/O pipelines.",
+      "Process control, systemd daemon management, cron scheduling & permissions.",
+      "Network socket diagnostics, SSH tunneling & remote server troubleshooting.",
+    ],
+    skills: ["Linux CLI", "Bash Automation", "Cron Jobs", "systemd", "SSH Tunneling"],
   },
   {
-    name: "Apache Airflow Certified Fundamentals",
-    issuer: "Astronomer",
-    status: "Production Proven · Target Cert 🚀",
-    badgeStyle: {
-      bg: "rgba(59, 130, 246, 0.12)",
-      border: "rgba(59, 130, 246, 0.35)",
-      text: "#3b82f6",
-      dot: "#3b82f6",
-    },
-    category: "Workflow Orchestration",
-    summary: "131+ production DAGs authored; dynamic task mapping, custom sensors & Docker operators.",
-    skills: ["Airflow 2.x", "DAG Authoring", "Astronomer", "TaskFlow API"],
-    emoji: "🌪️",
+    name: "LLM Zoomcamp (DataTalks.Club)",
+    issuer: "DataTalks.Club",
+    category: "AI & RAG Engineering",
+    iconSvg: <LlmIcon />,
+    keyPoints: [
+      "End-to-end Retrieval-Augmented Generation (RAG) system engineering.",
+      "Dense vector embeddings, indexing & hybrid search with vector databases.",
+      "LLM evaluation frameworks (RAGAS, hit rate, and MRR metrics).",
+      "Containerized microservice deployment with Docker & vector retrieval monitoring.",
+    ],
+    skills: ["RAG Systems", "Vector DBs", "pgvector", "Embeddings ETL", "Docker"],
   },
   {
-    name: "ClickHouse Architecture & Real-Time Analytics",
-    issuer: "ClickHouse Academy",
-    status: "In Production · Target Cert 🏎️",
-    badgeStyle: {
-      bg: "rgba(234, 179, 8, 0.12)",
-      border: "rgba(234, 179, 8, 0.35)",
-      text: "#eab308",
-      dot: "#eab308",
-    },
-    category: "High-Performance OLAP",
-    summary: "30+ production tables, MergeTree engines, sub-second analytical queries across 50M+ rows.",
-    skills: ["ClickHouse", "MergeTree", "Real-Time OLAP", "Materialized Views"],
-    emoji: "🏎️",
-  },
-  {
-    name: "GenAI & LLM Data Engineering",
-    issuer: "LangChain & Vector DBs",
-    status: "Actively Exploring 🧠",
-    badgeStyle: {
-      bg: "rgba(168, 85, 247, 0.12)",
-      border: "rgba(168, 85, 247, 0.35)",
-      text: "#a855f7",
-      dot: "#a855f7",
-    },
-    category: "AI & Emerging Tech",
-    summary: "Vector embeddings, RAG pipelines with pgvector, document ingestion, and autonomous agent tools.",
-    skills: ["pgvector", "LangChain", "RAG Pipelines", "Embeddings ETL"],
-    emoji: "🤖",
-  },
-  {
-    name: "Google Cloud Professional Data Engineer",
-    issuer: "Google Cloud",
-    status: "Targeting 🎯",
-    badgeStyle: {
-      bg: "rgba(66, 133, 244, 0.12)",
-      border: "rgba(66, 133, 244, 0.35)",
-      text: "#4285f4",
-      dot: "#4285f4",
-    },
-    category: "Cloud Platform",
-    summary: "BigQuery optimization, Cloud Storage data lakes, Pub/Sub event streaming, and Dataflow pipelines.",
-    skills: ["BigQuery", "Pub/Sub", "Dataflow", "Cloud Storage"],
-    emoji: "🌐",
+    name: "AI Agents Course",
+    issuer: "Hugging Face / DeepLearning.AI",
+    category: "Autonomous AI Systems",
+    iconSvg: <AgentIcon />,
+    keyPoints: [
+      "ReAct (Reason + Act) loops & multi-step autonomous planning workflows.",
+      "Tool-calling integration & schema-enforced structured LLM outputs.",
+      "Multi-agent orchestration architectures (LangGraph / CrewAI) for automation.",
+      "Agent memory systems: short-term context buffers & vector episodic memory.",
+    ],
+    skills: ["AI Agents", "LangGraph", "Tool Calling", "ReAct Loops", "Agent Memory"],
   },
 ];
 
-function CertCard({ c }: { c: CertItem }) {
+function CourseCard({ c }: { c: CourseItem }) {
   return (
     <div
-      className="w-[310px] sm:w-[350px] flex-shrink-0 fo-card p-5 rounded-2xl flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] hover:shadow-lg select-none"
+      className="w-[340px] sm:w-[380px] flex-shrink-0 fo-card p-5 sm:p-6 rounded-2xl flex flex-col justify-between transition-all duration-300 hover:scale-[1.02] hover:shadow-lg select-none"
       style={{
         border: "1px solid var(--fo-border)",
         background: "var(--fo-card)",
       }}
     >
       <div>
-        {/* Header row: category + emoji */}
-        <div className="flex items-center justify-between gap-2">
+        {/* Top Header Row: Brand Logo + Issuer on Left, Blue Coming Soon Tag on Right */}
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2.5 min-w-0">
+            <div
+              className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+              style={{
+                background: "var(--fo-bg-soft)",
+                border: "1px solid var(--fo-border)",
+              }}
+            >
+              {c.iconSvg}
+            </div>
+            <div className="min-w-0">
+              <p className="text-[12px] fo-muted font-medium truncate">{c.issuer}</p>
+              <span className="inline-block text-[11px] font-semibold text-[var(--fo-accent)] uppercase tracking-wider">
+                {c.category}
+              </span>
+            </div>
+          </div>
+
+          {/* BLUE COMING SOON TAG — LOCATED ABOVE THE NAME */}
           <span
-            className="text-[11.5px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold tracking-wide flex-shrink-0"
             style={{
-              background: "var(--fo-accent-soft)",
-              color: "var(--fo-accent)",
+              background: "rgba(59, 130, 246, 0.12)",
+              border: "1px solid rgba(59, 130, 246, 0.35)",
+              color: "#3b82f6",
             }}
           >
-            {c.category}
-          </span>
-          <span className="text-xl" role="img" aria-hidden="true">
-            {c.emoji}
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+            Coming Soon 🔓
           </span>
         </div>
 
-        {/* Certification / Tech Name */}
-        <h3 className="mt-3.5 text-[16px] sm:text-[17px] font-bold fo-ink leading-snug line-clamp-2 min-h-[46px]">
+        {/* Course / Certification Name */}
+        <h3 className="mt-4 text-[16px] sm:text-[17px] font-bold fo-ink leading-snug min-h-[46px]">
           {c.name}
         </h3>
 
-        {/* STATUS BADGE - DIRECTLY BELOW THE NAME (Unlocking Soon / In Progress / Targeting) */}
-        <div className="mt-2.5 flex items-center">
-          <span
-            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[12px] font-semibold tracking-wide"
-            style={{
-              background: c.badgeStyle.bg,
-              border: `1px solid ${c.badgeStyle.border}`,
-              color: c.badgeStyle.text,
-            }}
-          >
-            <span
-              className="w-1.5 h-1.5 rounded-full animate-ping"
-              style={{ background: c.badgeStyle.dot }}
-            />
-            {c.status}
-          </span>
+        {/* Impactful Key Curriculum Points */}
+        <div className="mt-3 space-y-1.5 text-[12.5px] sm:text-[13px] leading-relaxed">
+          {c.keyPoints.map((pt, idx) => (
+            <div key={idx} className="flex items-start gap-2">
+              <span className="text-blue-500 font-bold select-none text-[12px] mt-0.5">•</span>
+              <span className="fo-muted">{pt}</span>
+            </div>
+          ))}
         </div>
-
-        {/* Issuer */}
-        <p className="mt-2 text-[12.5px] fo-muted font-medium">
-          Issuer / Domain: <span className="fo-ink font-semibold">{c.issuer}</span>
-        </p>
-
-        {/* Summary Description */}
-        <p className="mt-2 text-[13.5px] leading-relaxed fo-muted">
-          {c.summary}
-        </p>
       </div>
 
-      {/* Tech pills */}
-      <div className="mt-4 pt-3 flex flex-wrap gap-1.5" style={{ borderTop: "1px solid var(--fo-border)" }}>
-        {c.skills.map((skill) => (
+      {/* Bottom Tech Pills */}
+      <div
+        className="mt-4 pt-3 flex flex-wrap gap-1.5"
+        style={{ borderTop: "1px solid var(--fo-border)" }}
+      >
+        {c.skills.map((s) => (
           <span
-            key={skill}
-            className="text-[11.5px] px-2 py-0.5 rounded-md font-medium"
+            key={s}
+            className="text-[11px] font-medium px-2 py-0.5 rounded-md"
             style={{
               background: "var(--fo-bg-soft)",
               color: "var(--fo-body)",
               border: "1px solid var(--fo-border)",
             }}
           >
-            {skill}
+            {s}
           </span>
         ))}
       </div>
@@ -228,36 +278,32 @@ export default function FolioCertifications() {
           className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-3"
           style={{ background: "var(--fo-accent-soft)", color: "var(--fo-accent)" }}
         >
-          <Sparkles size={13} /> Continuous Learning &amp; Tech Horizon
+          <Sparkles size={13} /> Continuous Upskilling &amp; Active Learning
         </div>
-        <h2 className="text-[32px] sm:text-[40px] font-bold">Certifications &amp; Emerging Tech</h2>
+        <h2 className="text-[32px] sm:text-[40px] font-bold">
+          Learning New Things &amp; Certifications Coming Soon
+        </h2>
         <div className="fo-underline fo-underline-center" />
         <p className="mt-3.5 text-[15px] sm:text-[16px] fo-muted max-w-2xl mx-auto">
-          Active technical horizons, emerging architectures, and target certifications I am actively mastering to engineer modern data platforms.
+          Technical programs, official curriculums, and certifications I am actively taking and unlocking soon to engineer production data systems.
         </p>
       </div>
 
-      {/* Rolling Right-to-Left Infinite Marquee */}
+      {/* Rolling Right-to-Left Infinite Marquee Track */}
       <div className="relative w-full overflow-hidden py-3">
         {/* Left & Right gradient fade masks */}
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-28 z-10 bg-gradient-to-r from-[var(--fo-bg)] to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-28 z-10 bg-gradient-to-l from-[var(--fo-bg)] to-transparent" />
 
-        {/* Marquee Track: Two identical sets loop seamlessly */}
+        {/* Double-loop track ensures seamless infinite right-to-left scroll */}
         <div className="fo-marquee-track">
-          {CERTS.map((c, i) => (
-            <CertCard key={`cert-a-${i}`} c={c} />
+          {COURSES.map((c, i) => (
+            <CourseCard key={`course-a-${i}`} c={c} />
           ))}
-          {CERTS.map((c, i) => (
-            <CertCard key={`cert-b-${i}`} c={c} />
+          {COURSES.map((c, i) => (
+            <CourseCard key={`course-b-${i}`} c={c} />
           ))}
         </div>
-      </div>
-
-      {/* Interactive hover hint */}
-      <div className="mt-5 text-center text-xs fo-muted flex items-center justify-center gap-2">
-        <span className="inline-block w-2 h-2 rounded-full bg-[var(--fo-accent)] animate-pulse" />
-        <span>Rolling right-to-left · Hover over any card to pause</span>
       </div>
     </section>
   );
