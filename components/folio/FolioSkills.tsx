@@ -17,6 +17,7 @@ const LOGO_BASE = "/Portfolio/logos";
 interface SkillGroup {
   icon: React.ComponentType<{ size?: number; className?: string }>;
   title: string;
+  description?: string;
   items: Skill[];
 }
 
@@ -91,6 +92,8 @@ const GROUP_ARCHITECTURE: SkillGroup = {
 const GROUP_MARKETPLACES: SkillGroup = {
   icon: ShoppingBag,
   title: "Marketplaces & Ingestion Portals",
+  description:
+    "Hands-on expertise across merchant portal UIs & backends — navigating report exports, interpreting business metrics (settlement, inventory, ad spend), and architecting automated ingestion pipelines.",
   items: [
     { name: "Amazon SP-API", emoji: "🛒" },
     { name: "Amazon Vendor Central", emoji: "📦" },
@@ -180,7 +183,7 @@ function SkillCard({ g }: { g: SkillGroup }) {
       }}
     >
       <div>
-        <div className="flex items-center gap-2.5 mb-4">
+        <div className="flex items-center gap-2.5 mb-3">
           <span
             className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
             style={{
@@ -194,6 +197,12 @@ function SkillCard({ g }: { g: SkillGroup }) {
             {g.title}
           </h3>
         </div>
+
+        {g.description && (
+          <p className="text-[12.5px] sm:text-[13px] fo-muted leading-relaxed mb-3.5">
+            {g.description}
+          </p>
+        )}
 
         <div className="flex flex-wrap gap-2">
           {g.items.map((s) => (
