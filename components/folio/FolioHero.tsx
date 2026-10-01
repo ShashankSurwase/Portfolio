@@ -117,7 +117,7 @@ export default function FolioHero() {
         </div>
 
         {/* Photo */}
-        <div className="w-full max-w-[380px] mx-auto lg:mx-0 lg:ml-auto">
+        <div className="w-full max-w-[380px] mx-auto lg:mx-0 lg:ml-auto flex flex-col items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={`${BASE}/profile.png`}
@@ -127,6 +127,9 @@ export default function FolioHero() {
             className="fo-photo w-full"
             style={{ aspectRatio: "4 / 5", objectFit: "cover", objectPosition: "top center" }}
           />
+          <p className="mt-3.5 text-center text-[13.5px] sm:text-[14px] italic fo-muted leading-relaxed px-2 font-normal">
+            &ldquo;Debug your history, open-source what you learn, and keep deploying a better version of yourself.&rdquo;
+          </p>
         </div>
       </div>
     </section>
